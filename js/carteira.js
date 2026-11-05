@@ -94,14 +94,14 @@ if (botaoTransferir) {
 
 
 const botaoConsultar = document.querySelector(
-    '[data-acao="consultar-conta"]'
+    '[data-acao="conta-conjunta"]'
 );
 
 if (botaoConsultar) {
 
     botaoConsultar.addEventListener("click", () => {
 
-        alert("Consulta de conta em desenvolvimento.");
+        alert("Conta Conjunta em desenvolvimento.");
 
     });
 
