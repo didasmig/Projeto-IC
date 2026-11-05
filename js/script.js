@@ -22,21 +22,24 @@ function adicionarFestival() {
 // NAVEGAÇÃO INFERIOR
 // ==============================
 
-function mudarPagina(botao, pagina) {
+// Destacar a página atualmente selecionada
 
-    const botoes = document.querySelectorAll(".nav-button");
+document.addEventListener("DOMContentLoaded", () => {
 
-    botoes.forEach((item) => {
-        item.classList.remove("active");
+    const paginaAtual = window.location.pathname;
+    const botoes = document.querySelectorAll(".botao-navegacao");
+
+    botoes.forEach((botao) => {
+
+        botao.classList.remove("ativo");
+
+        if (botao.getAttribute("href") === paginaAtual.split("/").pop()) {
+            botao.classList.add("ativo");
+        }
+
     });
 
-    botao.classList.add("active");
-
-    if (pagina !== "Início") {
-        alert("Aceder a: " + pagina);
-    }
-
-}
+});
 
 
 // ==============================
@@ -74,3 +77,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+

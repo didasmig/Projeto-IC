@@ -107,3 +107,137 @@
     }
 
 }
+
+/* positions da carteira */
+
+
+/* =================================
+   PÁGINA CARTEIRA - POSITIONS
+================================= */
+
+/* Estrutura principal */
+
+.aplicacao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-bottom: 85px;
+}
+
+/* Cabeçalho */
+
+.barra-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 55px;
+    padding: 0 18px;
+}
+
+/* Conteúdo da carteira */
+
+.conteudo-carteira {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+/* Saldo */
+
+.cartao-saldo {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.informacao-saldo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.valor-saldo {
+    margin-top: 5px;
+}
+
+/* Operações */
+
+.operacoes-carteira {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.botao-operacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 12px;
+}
+
+/* Movimentos */
+
+.secao-movimentos {
+    width: 100%;
+}
+
+.secao-movimentos h2 {
+    margin-bottom: 10px;
+}
+
+.lista-movimentos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.movimento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 28px;
+}
+
+/* Menu inferior */
+
+.barra-navegacao {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 430px;
+    height: 70px;
+    transform: translateX(-50%);
+}
+
+.botao-navegacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Ecrãs maiores */
+
+@media (min-width: 600px) {
+
+    .aplicacao {
+        min-height: 90vh;
+    }
+
+    .barra-navegacao {
+        bottom: 20px;
+    }
+
+}

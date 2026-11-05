@@ -28,7 +28,7 @@ button {
     font-weight: bold;
 }
 
-.balance {
+.saldo {
     font-size: 14px;
     font-weight: bold;
 }
@@ -128,3 +128,136 @@ button {
     }
 
 }
+
+/* styles da carteira */
+
+/* Cabeçalho */
+
+.barra-superior {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.botao-voltar {
+    color: #333;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.titulo-cabecalho {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.saldo-cabecalho {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Cartão do saldo */
+
+.cartao-saldo {
+    background-color: #e9e2f7;
+    border-radius: 12px;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+}
+
+.informacao-saldo h2 {
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.valor-saldo {
+    color: #392568;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.botao-ocultar-saldo {
+    border: none;
+    background: none;
+    color: #392568;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* Botões das operações */
+
+.botao-operacao {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #e9e2f7;
+    color: #292929;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.botao-operacao:hover {
+    background-color: #d9cef0;
+}
+
+.icone-operacao {
+    font-size: 18px;
+}
+
+/* Últimos movimentos */
+
+.secao-movimentos h2 {
+    color: #292929;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.movimento {
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.nome-movimento {
+    color: #333;
+}
+
+.valor-negativo {
+    color: #a33b3b;
+    font-weight: bold;
+}
+
+.valor-positivo {
+    color: #27834a;
+    font-weight: bold;
+}
+
+/* Menu inferior */
+
+.barra-navegacao {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.botao-navegacao {
+    color: #555;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.icone-navegacao {
+    font-size: 25px;
+}
+
+.botao-navegacao.ativo {
+    color: #805ad5;
+}
+
+/* Ecrãs maiores */
+
+@media (min-width: 600px) {
+
+    .aplicacao {
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgb(0 0 0 / 12%);
+    }
+
+}
+
+
