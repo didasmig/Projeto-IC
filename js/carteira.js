@@ -140,7 +140,7 @@ function mostrarMovimentos() {
         const valorMovimento = document.createElement("span");
         valorMovimento.classList.add("valor-positivo");
 
-        valorMovimento.textContent = "+" +
+        valorMovimento.textContent = "+ " +
             Number(movimento.valor).toLocaleString("pt-PT", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
