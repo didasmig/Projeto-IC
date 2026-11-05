@@ -12,6 +12,7 @@
 
     <!-- JavaScript -->
     <script src="" defer></script>
+    <script src="js/saldo.js" defer></script>
     <!-- Script para ícones -->
     <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
 </head>
@@ -30,7 +31,7 @@
                 BanDy
             </span>
 
-            <span class="saldo-cabecalho">
+            <span class="saldo-cabecalho" data-saldo>
                 34,29 €
             </span>
 
@@ -64,22 +65,23 @@
         <nav class="barra-navegacao">
 
             <a href="inicio.html" class="botao-navegacao">
-                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span class="icone-navegacao">
+                    <i class="fa-solid fa-house"></i>
+                </span>
                 <span>Início</span>
             </a>
 
-
-            <a href="carteira.html"
-               class="botao-navegacao ativo">
-
-                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+            <a href="carteira.html" class="botao-navegacao">
+                <span class="icone-navegacao">
+                    <i class="fa-solid fa-wallet"></i>
+                </span>
                 <span>Carteira</span>
-
             </a>
 
-
-            <a href="perfil.html" class="botao-navegacao">
-                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+            <a href="perfil.html" class="botao-navegacao ativo">
+                <span class="icone-navegacao">
+                    <i class="fa-solid fa-user"></i>
+                </span>
                 <span>Perfil</span>
             </a>
 

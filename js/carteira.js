@@ -68,15 +68,10 @@ const botaoPagamento = document.querySelector(
 );
 
 if (botaoPagamento) {
-
     botaoPagamento.addEventListener("click", () => {
-
-        alert("Funcionalidade de pagamento em desenvolvimento.");
-
+        window.location.href = "pagamento.html";
     });
-
 }
-
 
 const botaoTransferir = document.querySelector(
     '[data-acao="transferir"]'
