@@ -241,3 +241,69 @@
     }
 
 }
+
+/* =================================
+   PÁGINA DE DEPÓSITO - POSITIONS
+================================= */
+
+.conteudo-deposito {
+    width: 100%;
+    padding: 25px 25px;
+}
+
+.titulo-deposito {
+    margin-bottom: 5px;
+}
+
+.subtitulo-deposito {
+    margin-bottom: 25px;
+}
+
+/* Valores predefinidos */
+
+.valores-predefinidos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.botao-valor {
+    width: 100%;
+    min-height: 45px;
+}
+
+/* Valor personalizado */
+
+.campo-valor-personalizado {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.campo-valor-personalizado input {
+    width: 100%;
+    min-height: 45px;
+    padding: 10px;
+}
+
+/* Método de pagamento */
+
+.campo-metodo-pagamento {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.campo-metodo-pagamento select {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px;
+}
+
+/* Confirmar */
+
+.botao-confirmar-deposito {
+    width: 100%;
+    min-height: 48px;
+}

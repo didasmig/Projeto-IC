@@ -1,68 +1,112 @@
-//--script para carteira--//
 
-// Elementos da página
-const valorSaldo = document.querySelector(".valor-saldo");
-const botaoOcultarSaldo = document.querySelector(
-    '[data-acao="ocultar-saldo"]'
-);
+/* =================================
+   FUNCIONALIDADES DA CARTEIRA
+================================= */
 
 
 // =================================
 // OCULTAR / MOSTRAR SALDO
 // =================================
 
+const valorSaldo = document.querySelector(".valor-saldo");
+
+const botaoOcultarSaldo = document.querySelector(
+    '[data-acao="ocultar-saldo"]'
+);
+
 let saldoVisivel = true;
 
-botaoOcultarSaldo.addEventListener("click", () => {
 
-    saldoVisivel = !saldoVisivel;
+if (botaoOcultarSaldo && valorSaldo) {
 
-    if (saldoVisivel) {
-        valorSaldo.textContent = "34,25 €";
-        botaoOcultarSaldo.textContent = "◉";
-    } else {
-        valorSaldo.textContent = "••••••";
-        botaoOcultarSaldo.textContent = "◎";
-    }
+    botaoOcultarSaldo.addEventListener("click", () => {
 
-});
+        saldoVisivel = !saldoVisivel;
+
+        if (saldoVisivel) {
+
+            mostrarSaldo();
+
+            valorSaldo.style.visibility = "visible";
+
+            botaoOcultarSaldo.innerHTML = "◉";
+
+        } else {
+
+            valorSaldo.textContent = "••••••";
+
+            botaoOcultarSaldo.innerHTML = "◎";
+
+        }
+
+    });
+
+}
 
 
 // =================================
-// OPERAÇÕES DA CARTEIRA
+// DEPOSITAR
 // =================================
 
-// Depositar
-document.querySelector('[data-acao="depositar"]')
-    .addEventListener("click", () => {
+const botaoDepositar = document.querySelector(
+    '[data-acao="depositar"]'
+);
 
-        alert("Abrir página de depósito.");
+if (botaoDepositar) {
 
-    });
+    botaoDepositar.addEventListener("click", () => {
 
-
-// Pagamento
-document.querySelector('[data-acao="pagamento"]')
-    .addEventListener("click", () => {
-
-        alert("Abrir página de pagamento.");
+        window.location.href = "depositar.html";
 
     });
 
+}
 
-// Transferir
-document.querySelector('[data-acao="transferir"]')
-    .addEventListener("click", () => {
 
-        alert("Abrir página de transferência.");
+// =================================
+// OUTRAS OPERAÇÕES
+// =================================
+
+const botaoPagamento = document.querySelector(
+    '[data-acao="pagamento"]'
+);
+
+if (botaoPagamento) {
+
+    botaoPagamento.addEventListener("click", () => {
+
+        alert("Funcionalidade de pagamento em desenvolvimento.");
 
     });
 
+}
 
-// Consultar conta
-document.querySelector('[data-acao="consultar-conta"]')
-    .addEventListener("click", () => {
 
-        alert("Consultar dados da conta.");
+const botaoTransferir = document.querySelector(
+    '[data-acao="transferir"]'
+);
+
+if (botaoTransferir) {
+
+    botaoTransferir.addEventListener("click", () => {
+
+        alert("Funcionalidade de transferência em desenvolvimento.");
 
     });
+
+}
+
+
+const botaoConsultar = document.querySelector(
+    '[data-acao="consultar-conta"]'
+);
+
+if (botaoConsultar) {
+
+    botaoConsultar.addEventListener("click", () => {
+
+        alert("Consulta de conta em desenvolvimento.");
+
+    });
+
+}

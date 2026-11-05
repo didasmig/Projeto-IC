@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BandUp - Depositar</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/positions.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JavaScript -->
+    <script src="js/saldo.js" defer></script>
+    <script src="js/depositar.js" defer></script>
+</head>
+
+<body>
+
+    <main class="aplicacao">
+
+        <!-- Cabeçalho -->
+        <header class="barra-superior">
+
+            <a href="carteira.html" class="botao-voltar">
+                ←
+            </a>
+
+            <span class="titulo-cabecalho">BANDY</span>
+
+            <span class="saldo-cabecalho" data-saldo>
+                34,29 €
+            </span>
+
+        </header>
+
+
+        <!-- Conteúdo do depósito -->
+        <section class="conteudo-deposito">
+
+            <h2 class="titulo-deposito">Escolha o valor</h2>
+
+            <p class="subtitulo-deposito">
+                que pretende depositar
+            </p>
+
+
+            <!-- Valores predefinidos -->
+            <div class="valores-predefinidos">
+
+                <button type="button" class="botao-valor"
+                    data-valor="10">
+                    10 €
+                </button>
+
+                <button type="button" class="botao-valor"
+                    data-valor="20">
+                    20 €
+                </button>
+
+                <button type="button" class="botao-valor"
+                    data-valor="50">
+                    50 €
+                </button>
+
+                <button type="button" class="botao-valor"
+                    data-valor="100">
+                    100 €
+                </button>
+
+            </div>
+
+
+            <!-- Valor personalizado -->
+            <div class="campo-valor-personalizado">
+
+                <input
+                    type="number"
+                    id="valor-personalizado"
+                    placeholder="Valor personalizado"
+                    min="0.01"
+                    step="0.01"
+                >
+
+                <span>€</span>
+
+            </div>
+
+
+            <!-- Método de pagamento -->
+            <div class="campo-metodo-pagamento">
+
+                <select id="metodo-pagamento">
+
+                    <option value="" disabled selected>
+                        Método de pagamento
+                    </option>
+
+                    <option value="Wallet">
+                        Wallet da aplicação
+                    </option>
+
+                    <option value="MBWay">
+                        MBWay
+                    </option>
+
+                    <option value="PayPal">
+                        PayPal
+                    </option>
+
+                    <option value="Multibanco">
+                        Multibanco
+                    </option>
+
+                    <option value="ApplePay">
+                        ApplePay
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Botão confirmar -->
+            <button
+                type="button"
+                class="botao-confirmar-deposito"
+                id="confirmar-deposito">
+
+                CONFIRMAR
+
+            </button>
+
+        </section>
+
+
+        <!-- Menu inferior -->
+        <nav class="barra-navegacao">
+
+            <a href="index.html" class="botao-navegacao">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+
+            <a href="carteira.html" class="botao-navegacao ativo">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Carteira</span>
+            </a>
+
+            <a href="perfil.html" class="botao-navegacao">
+                <i class="fa-solid fa-user"></i>
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+</body>
+</html>
