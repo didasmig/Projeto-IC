@@ -101,6 +101,27 @@ botaoConfirmar.addEventListener("click", () => {
     // Guardar novo saldo
     atualizarSaldo(novoSaldo);
 
+    // Guardar depósito no histórico de movimentos
+    const movimentos = JSON.parse(
+        localStorage.getItem("movimentosBanDy") || "[]"
+    );
+
+    const novoMovimento = {
+        tipo: "deposito",
+        valor: valor,
+        data: new Date().toISOString()
+    };
+
+    movimentos.unshift(novoMovimento);
+
+    // Guardar apenas os 10 movimentos mais recentes
+    const movimentosRecentes = movimentos.slice(0, 10);
+
+    localStorage.setItem(
+        "movimentosBanDy",
+        JSON.stringify(movimentosRecentes)
+    );
+
 
     // Mostrar confirmação
     alert(
