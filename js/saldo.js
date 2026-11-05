@@ -1,16 +1,15 @@
-
 /* =================================
-   GESTÃO DO SALDO DA BANDUP
+   GESTÃO DO SALDO DA BANDY
 ================================= */
 
 // Saldo inicial da aplicação
 const SALDO_INICIAL = 34.29;
 
 // Verificar se já existe um saldo guardado
-if (localStorage.getItem("saldoBandUp") === null) {
+if (localStorage.getItem("saldoBanDy") === null) {
 
     localStorage.setItem(
-        "saldoBandUp",
+        "saldoBanDy",
         SALDO_INICIAL
     );
 
@@ -21,7 +20,7 @@ if (localStorage.getItem("saldoBandUp") === null) {
 function obterSaldo() {
 
     return Number(
-        localStorage.getItem("saldoBandUp")
+        localStorage.getItem("saldoBanDy")
     );
 
 }
@@ -31,7 +30,7 @@ function obterSaldo() {
 function atualizarSaldo(novoSaldo) {
 
     localStorage.setItem(
-        "saldoBandUp",
+        "saldoBanDy",
         novoSaldo.toFixed(2)
     );
 
@@ -53,8 +52,6 @@ function mostrarSaldo() {
         }
     ) + " €";
 
-
-    // Atualizar todos os elementos com data-saldo
     document.querySelectorAll("[data-saldo]").forEach((elemento) => {
 
         elemento.textContent = saldoFormatado;
@@ -62,6 +59,12 @@ function mostrarSaldo() {
     });
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    mostrarSaldo();
+
+});
 
 
 // Executar quando a página carregar

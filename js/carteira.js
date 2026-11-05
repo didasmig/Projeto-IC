@@ -3,23 +3,19 @@
    FUNCIONALIDADES DA CARTEIRA
 ================================= */
 
-
 // =================================
 // OCULTAR / MOSTRAR SALDO
 // =================================
 
-const valorSaldo = document.querySelector(".valor-saldo");
-
-const botaoOcultarSaldo = document.querySelector(
+const botoesOcultarSaldo = document.querySelector(
     '[data-acao="ocultar-saldo"]'
 );
 
 let saldoVisivel = true;
 
+if (botoesOcultarSaldo) {
 
-if (botaoOcultarSaldo && valorSaldo) {
-
-    botaoOcultarSaldo.addEventListener("click", () => {
+    botoesOcultarSaldo.addEventListener("click", () => {
 
         saldoVisivel = !saldoVisivel;
 
@@ -27,15 +23,15 @@ if (botaoOcultarSaldo && valorSaldo) {
 
             mostrarSaldo();
 
-            valorSaldo.style.visibility = "visible";
-
-            botaoOcultarSaldo.innerHTML = "◉";
+            botoesOcultarSaldo.innerHTML = "◉";
 
         } else {
 
-            valorSaldo.textContent = "••••••";
+            document.querySelectorAll("[data-saldo]").forEach((elemento) => {
+                elemento.textContent = "••••••";
+            });
 
-            botaoOcultarSaldo.innerHTML = "◎";
+            botoesOcultarSaldo.innerHTML = "◎";
 
         }
 
