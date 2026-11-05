@@ -1,4 +1,4 @@
 # Projeto-IC
 IC-TP11-PL12-G11-PF
 --Projeto realizado por Diogo Madureira 65935; Ricardo Reimão 62207, Rodrigo Duarte 60354, Tomás Carvalho 64296; Vicente Silva 63642--
-A funcionalidade do saldo atualizar entre páginas apenas funciona quando se inicia a página com o "live server" local usando a extensão "Live Server" do VSCode. O comportamento do localStorage não é garantido quando se abrem ficheiros HTML diretamente através do ficheiro. Desta forma, todas as páginas partilham a mesma origem e conseguem aceder ao saldo guardado, permitindo que os depósitos sejam atualizados automaticamente na aplicação. 
+A funcionalidade do saldo atualizar entre páginas e os útlimos movimentos apenas funcionam quando se inicia a página com o "live server" local usando a extensão "Live Server" do VSCode. O comportamento do localStorage não é garantido quando se abrem ficheiros HTML diretamente através do ficheiro. Desta forma, todas as páginas partilham a mesma origem e conseguem aceder ao saldo guardado, permitindo que os depósitos sejam atualizados automaticamente na aplicação. 
