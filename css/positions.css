@@ -1,0 +1,109 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-bottom: 85px;
+}
+
+/* Cabeçalho */
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 55px;
+    padding: 0 18px;
+}
+
+/* Logótipo */
+
+.logo {
+    margin: 65px 0 35px;
+    text-align: center;
+}
+
+/* Festival em destaque */
+
+.featured-section {
+    margin: 0 35px 45px;
+}
+
+.featured-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 160px;
+    padding: 20px;
+}
+
+/* Grelha de festivais */
+
+.festivals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 25px 30px;
+}
+
+.festival-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 115px;
+    padding: 15px 10px;
+}
+
+/* Menu inferior */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 430px;
+    height: 70px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+/* Ecrãs maiores */
+
+@media (min-width: 600px) {
+
+    body {
+        padding: 20px 0;
+    }
+
+    .app {
+        min-height: 90vh;
+    }
+
+    .bottom-nav {
+        bottom: 20px;
+    }
+
+}

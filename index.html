@@ -4,286 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BandUp App</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>BanDy</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #222;
-        }
+    <link rel="stylesheet" href="./css/positions.css">
+    <link rel="stylesheet" href="./css/styles.css">
 
-        /* Estrutura principal */
-        .app {
-            max-width: 430px;
-            min-height: 100vh;
-            margin: auto;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            padding-bottom: 75px;
-        }
-
-        /* Cabeçalho */
-        header {
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 18px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .back {
-            font-size: 25px;
-            color: #333;
-            text-decoration: none;
-        }
-
-        .header-title {
-            font-weight: bold;
-            font-size: 17px;
-        }
-
-        .balance {
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* Logótipo */
-        .logo {
-            text-align: center;
-            margin: 65px 0 35px;
-        }
-
-        .logo h1 {
-            font-size: 30px;
-            color: #292929;
-        }
-
-        .logo span {
-            font-size: 35px;
-        }
-
-        /* Festival principal */
-        .featured {
-            margin: 0 35px 45px;
-            min-height: 160px;
-            background: linear-gradient(135deg, #805ad5, #5533a5);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            box-shadow: 0 4px 10px #0002;
-        }
-
-        .featured button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 23px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Grelha de festivais */
-        .festivals {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 0 25px 30px;
-        }
-
-        .festival-card {
-            min-height: 115px;
-            border-radius: 12px;
-            border: none;
-            padding: 15px 10px;
-            background-color: #e9e2f7;
-            color: #392568;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 3px 7px #0001;
-            transition: 0.2s;
-        }
-
-        .festival-card:hover {
-            transform: translateY(-3px);
-            background-color: #d9cef0;
-        }
-
-        .add-card {
-            background-color: #292929;
-            color: white;
-        }
-
-        .add-card:hover {
-            background-color: #444;
-        }
-
-        /* Menu inferior */
-        nav {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 430px;
-            height: 70px;
-            background: white;
-            border-top: 1px solid #ddd;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        nav button {
-            background: none;
-            border: none;
-            font-size: 25px;
-            cursor: pointer;
-            color: #555;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-        }
-
-        nav button span {
-            font-size: 11px;
-        }
-
-        nav button.active {
-            color: #805ad5;
-        }
-
-        /* Adaptação para ecrãs maiores */
-        @media (min-width: 600px) {
-            body {
-                padding: 20px 0;
-            }
-
-            .app {
-                min-height: 90vh;
-                border-radius: 15px;
-                box-shadow: 0 0 15px #0002;
-            }
-
-            nav {
-                bottom: 20px;
-            }
-        }
-    </style>
+    <script src="./js/script.js" defer></script>
 </head>
 
 <body>
 
-<div class="app">
+    <main class="app">
 
-    <!-- Cabeçalho -->
-    <header>
-        <a href="#" class="back" onclick="history.back()">←</a>
+        <!-- Cabeçalho -->
+        <header class="top-bar">
+            <button class="back-button" data-action="back">←</button>
+            <span class="header-title">BanDy</span>
+            <span class="balance">34,29 €</span>
+        </header>
 
-        <div class="header-title">BANDY</div>
+        <!-- Logótipo -->
+        <section class="logo">
+            <h1>♫ BanDy APP</h1>
+        </section>
 
-        <div class="balance">34,29 €</div>
-    </header>
+        <!-- Festival em destaque -->
+        <section class="featured-section">
+            <button class="featured-card" data-festival="Festival Atual">
+                Festival Atual
+            </button>
+        </section>
 
-    <!-- Logótipo -->
-    <section class="logo">
-        <h1><span>♫</span> BandUp APP</h1>
-    </section>
+        <!-- Cartões dos festivais -->
+        <section class="festivals">
 
-    <!-- Festival em destaque -->
-    <section class="featured">
-        <button onclick="abrirFestival('Festival Atual')">
-            Festival Atual
-        </button>
-    </section>
+            <button class="festival-card add-card" data-action="add-festival">
+                <span>+</span>
+                <span>Adicionar Festival</span>
+            </button>
 
-    <!-- Cartões de festivais -->
-    <section class="festivals">
+            <button class="festival-card" data-festival="Festival Futuro">
+                Festival Futuro
+            </button>
 
-        <button class="festival-card add-card"
-                onclick="adicionarFestival()">
-            +<br>
-            Adicionar Festival
-        </button>
+            <button class="festival-card" data-festival="Festival Passado">
+                Festival Passado
+            </button>
 
-        <button class="festival-card"
-                onclick="abrirFestival('Festival Futuro')">
-            Festival Futuro
-        </button>
+            <button class="festival-card" data-festival="Outros Festivais">
+                Outros Festivais
+            </button>
 
-        <button class="festival-card"
-                onclick="abrirFestival('Festival Passado')">
-            Festival Passado
-        </button>
+        </section>
 
-        <button class="festival-card"
-                onclick="abrirFestival('Outros Festivais')">
-            Outros Festivais
-        </button>
+        <!-- Menu inferior -->
+        <nav class="bottom-nav">
 
-    </section>
+            <button class="nav-button active" data-page="Início">
+                <span class="nav-icon">⌂</span>
+                <span>Início</span>
+            </button>
 
-    <!-- Menu inferior -->
-    <nav>
-        <button class="active" onclick="mudarPagina(this, 'Início')">
-            🏠
-            <span>Início</span>
-        </button>
+            <button class="nav-button" data-page="Bilhetes">
+                <span class="nav-icon">▤</span>
+                <span>Bilhetes</span>
+            </button>
 
-        <button onclick="mudarPagina(this, 'Bilhetes')">
-            🎟️
-            <span>Bilhetes</span>
-        </button>
+            <button class="nav-button" data-page="Perfil">
+                <span class="nav-icon">♙</span>
+                <span>Perfil</span>
+            </button>
 
-        <button onclick="mudarPagina(this, 'Perfil')">
-            👤
-            <span>Perfil</span>
-        </button>
-    </nav>
+        </nav>
 
-</div>
-
-<script>
-
-    function abrirFestival(nome) {
-        alert("Abrir: " + nome);
-    }
-
-    function adicionarFestival() {
-        const nome = prompt("Qual é o nome do festival?");
-
-        if (nome && nome.trim() !== "") {
-            alert(nome + " foi adicionado!");
-        }
-    }
-
-    function mudarPagina(botao, pagina) {
-        document.querySelectorAll("nav button").forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-        botao.classList.add("active");
-
-        if (pagina !== "Início") {
-            alert("Aceder a: " + pagina);
-        }
-    }
-
-</script>
+    </main>
 
 </body>
 </html>
+
