@@ -330,6 +330,51 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 300px;
-    margin-top: 60px;
+    height: 180px;
+}
+
+/* Transferência */
+
+.conteudo-transferencia { 
+    padding: 24px 20px; 
+}
+.titulo-transferencia { 
+    text-align: center; 
+    margin-bottom: 28px; 
+}
+
+.formulario-transferencia {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formulario-transferencia label {
+    font-weight: 600;
+    font-size: 100%;
+    margin-top: 10px;
+}
+
+.formulario-transferencia input {
+    padding: 14px;
+    font-size: 100%;
+    border: 1.5px solid #ddd;
+    border-radius: 12px;
+    outline: none;
+}
+
+.formulario-transferencia button {
+    margin-top: 20px;
+    padding: 14px;
+    font-size: 150%;
+    font-weight: 600;
+    color: #fff;
+    background: #805ad5;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.formulario-transferencia button:hover { 
+    background: #6341b5; 
 }
