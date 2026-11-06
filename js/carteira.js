@@ -83,6 +83,8 @@ if (botaoConsultar) {
 
 }
 
+// MOSTRAR ÚLTIMOS MOVIMENTOS
+
 function mostrarMovimentos() {
     const listaMovimentos = document.querySelector("#lista-movimentos");
 
@@ -108,22 +110,44 @@ function mostrarMovimentos() {
 
     listaMovimentos.innerHTML = "";
 
+    // Mostrar ambos os depósitos e as transferências
     movimentos.slice(0, 10).forEach((movimento) => {
-        const elementoMovimento = document.createElement("div");
+
+        const elementoMovimento = document.createElement("article");
         elementoMovimento.classList.add("movimento");
 
         const nomeMovimento = document.createElement("span");
         nomeMovimento.classList.add("nome-movimento");
-        nomeMovimento.textContent = "Depósito";
 
         const valorMovimento = document.createElement("span");
-        valorMovimento.classList.add("valor-positivo");
 
-        valorMovimento.textContent = "+ " +
-            Number(movimento.valor).toLocaleString("pt-PT", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }) + " €";
+        const valorFormatado = Number(movimento.valor).toLocaleString("pt-PT", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        if (movimento.tipo === "transferencia") {
+
+            // Transferência: valor negativo
+            nomeMovimento.textContent =
+                "Transferência - " + movimento.destinatario;
+
+            valorMovimento.classList.add("valor-negativo");
+
+            valorMovimento.textContent = "- " + valorFormatado + " €";
+
+        } else if (movimento.tipo === "deposito") {
+
+            // Depósito: valor positivo
+            nomeMovimento.textContent = "Depósito";
+
+            valorMovimento.classList.add("valor-positivo");
+
+            valorMovimento.textContent = "+ " + valorFormatado + " €";
+
+        } else {
+            return;
+        }
 
         elementoMovimento.appendChild(nomeMovimento);
         elementoMovimento.appendChild(valorMovimento);
@@ -131,7 +155,8 @@ function mostrarMovimentos() {
         listaMovimentos.appendChild(elementoMovimento);
     });
 
-    const quantidadeRestante = 10 - movimentos.length;
+    // Completar até 10 movimentos com os 3 iniciais
+    const quantidadeRestante = Math.max(0, 10 - movimentos.length);
 
     if (quantidadeRestante > 0) {
         const recipiente = document.createElement("div");
