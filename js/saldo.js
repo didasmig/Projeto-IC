@@ -1,7 +1,3 @@
-/* =================================
-   GESTÃO DO SALDO DA BANDY
-================================= */
-
 // Saldo inicial da aplicação
 const SALDO_INICIAL = 34.29;
 

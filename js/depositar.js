@@ -1,9 +1,5 @@
 
-/* =================================
-   FUNCIONALIDADES DO DEPÓSITO
-================================= */
-
-// Elementos HTML
+// Elementos HTML do depósito
 const campoValor = document.getElementById(
     "valor-personalizado"
 );
@@ -20,10 +16,7 @@ const botoesValor = document.querySelectorAll(
     ".botao-valor"
 );
 
-
-// =================================
 // SELECIONAR VALORES PREDEFINIDOS
-// =================================
 
 botoesValor.forEach((botao) => {
 
@@ -44,10 +37,7 @@ botoesValor.forEach((botao) => {
 
 });
 
-
-// =================================
 // ESCREVER VALOR PERSONALIZADO
-// =================================
 
 campoValor.addEventListener("input", () => {
 
@@ -58,10 +48,7 @@ campoValor.addEventListener("input", () => {
 
 });
 
-
-// =================================
 // CONFIRMAR DEPÓSITO
-// =================================
 
 botaoConfirmar.addEventListener("click", () => {
 

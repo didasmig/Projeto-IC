@@ -1,7 +1,4 @@
-
-// ==============================
 // CARTÕES DOS FESTIVAIS
-// ==============================
 
 function abrirFestival(nome) {
     alert("Abrir: " + nome);
@@ -18,9 +15,8 @@ function adicionarFestival() {
 }
 
 
-// ==============================
+
 // NAVEGAÇÃO INFERIOR
-// ==============================
 
 // Destacar a página atualmente selecionada
 
@@ -41,10 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-// ==============================
 // EVENTOS DOS BOTÕES
-// ==============================
 
 document.addEventListener("DOMContentLoaded", () => {
 

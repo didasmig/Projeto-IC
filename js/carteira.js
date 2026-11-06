@@ -1,12 +1,3 @@
-
-/* =================================
-   FUNCIONALIDADES DA CARTEIRA
-================================= */
-
-// =================================
-// OCULTAR / MOSTRAR SALDO
-// =================================
-
 const botoesOcultarSaldo = document.querySelector(
     '[data-acao="ocultar-saldo"]'
 );
@@ -39,11 +30,6 @@ if (botoesOcultarSaldo) {
 
 }
 
-
-// =================================
-// DEPOSITAR
-// =================================
-
 const botaoDepositar = document.querySelector(
     '[data-acao="depositar"]'
 );
@@ -57,11 +43,6 @@ if (botaoDepositar) {
     });
 
 }
-
-
-// =================================
-// OUTRAS OPERAÇÕES
-// =================================
 
 const botaoPagamento = document.querySelector(
     '[data-acao="pagamento"]'
@@ -101,7 +82,6 @@ if (botaoConsultar) {
     });
 
 }
-// MOSTRAR ÚLTIMOS MOVIMENTOS
 
 function mostrarMovimentos() {
     const listaMovimentos = document.querySelector("#lista-movimentos");
@@ -126,7 +106,6 @@ function mostrarMovimentos() {
         localStorage.getItem("movimentosBanDy") || "[]"
     );
 
-    // Mostrar os novos depósitos primeiro
     listaMovimentos.innerHTML = "";
 
     movimentos.slice(0, 10).forEach((movimento) => {
@@ -152,7 +131,6 @@ function mostrarMovimentos() {
         listaMovimentos.appendChild(elementoMovimento);
     });
 
-    // Completar até 10 movimentos com os 3 iniciais
     const quantidadeRestante = 10 - movimentos.length;
 
     if (quantidadeRestante > 0) {
