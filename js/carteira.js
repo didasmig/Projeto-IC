@@ -81,7 +81,7 @@ if (botaoTransferir) {
 
     botaoTransferir.addEventListener("click", () => {
 
-        alert("Funcionalidade de transferência em desenvolvimento.");
+        window.location.href = "transferir.html";
 
     });
 
