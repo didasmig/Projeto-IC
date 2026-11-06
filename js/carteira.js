@@ -77,7 +77,7 @@ if (botaoConsultar) {
 
     botaoConsultar.addEventListener("click", () => {
 
-        alert("Conta Conjunta em desenvolvimento.");
+        window.location.href = "conta_conjunta.html";
 
     });
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BanDy - Transferência</title>
+
+    <!-- Ficheiros CSS -->
+    <link rel="stylesheet" href="css/positions.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JavaScript -->
+    <script src="js\carteira.js" defer></script>
+    <script src="js\saldo.js"></script>
+    <!-- Script para ícones -->
+    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="aplicacao">
+
+        <!-- Cabeçalho -->
+        <header class="barra-superior">
+
+            <a href="carteira.html" class="botao-voltar">
+                ←
+            </a>
+
+            <span class="titulo-cabecalho">
+                BanDy
+            </span>
+
+            <span class="saldo-cabecalho" data-saldo>
+                34,29 €
+            </span>
+        </header>
+
+        <section class="conteudo-conta_conjunta">
+
+            <!-- Saldo atual -->
+            <section class="cartao-saldo">
+
+                <div class="informacao-saldo">
+
+                    <div>
+                        <h2>Saldo da Conta Conjunta</h2>
+
+                        <p class="valor-saldo" data-saldo>
+                            34,29 €
+                        </p>
+                    </div>
+
+                    <button class="botao-ocultar-saldo"
+                            type="button"
+                            aria-label="Ocultar saldo"
+                            data-acao="ocultar-saldo">
+                        ◉
+                    </button>
+
+                </div>
+
+            </section>
+            
+        </section>
+
+
+
+
+
+
+
+
+                <!-- Menu de navegação inferior -->
+        <nav class="barra-navegacao">
+
+            <a href="inicio.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span>Início</span>
+            </a>
+
+
+            <a href="carteira.html"
+               class="botao-navegacao ativo">
+
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+                <span>Carteira</span>
+
+            </a>
+
+
+            <a href="perfil.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+</body>
