@@ -1,5 +1,5 @@
 // Alertar o user de quando a transferência é concluída e atualizar o saldo
-document.getElementById("transferForm").addEventListener("submit", (e) => {
+document.getElementById("transferForm")?.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const destinatario = e.target.destinatario.value.trim();
