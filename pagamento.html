@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- JavaScript -->
-    <script src="" defer></script>
     <script src="js/saldo.js" defer></script>
+    <script src="js/pagamento.js" defer></script>
     <!-- Script para ícones -->
     <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
 </head>
@@ -22,33 +22,63 @@
 
         <!-- Cabeçalho -->
         <header class="barra-superior">
-
-            <a href="carteira.html" class="botao-voltar">
-                ←
-            </a>
-
-            <span class="titulo-cabecalho">
-                BanDy
-            </span>
-
-            <span class="saldo-cabecalho" data-saldo>
-                34,29 €
-            </span>
-
+            <a href="carteira.html" class="botao-voltar">←</a>
+            <span class="titulo-cabecalho">BanDy</span>
+            <span class="saldo-cabecalho" data-saldo>34,29 €</span>
         </header>
 
         <section class="conteudo-pagamento">
             <div>
                 <h2 class="titulo-Pagamento">Pagamento</h2>
             </div>
+
             <div class="QR-code">
-                <img src="imagens\qrcode.svg" alt="QR Code para pagamento">
+                <button type="button" class="botao-pagamento" data-metodo="QR Code" aria-label="Pagar com QR Code">
+                    <img src="imagens/qrcode.svg" alt="QR Code para pagamento">
+                </button>
             </div>
-                <p class="ou">OU</p>
+
+            <p class="ou">OU</p>
+
             <div class="NFC">
-                <img src="imagens\NFC_4.png" alt="NFC para pagamento">
+                <button type="button" class="botao-pagamento" data-metodo="NFC" aria-label="Pagar com NFC">
+                    <img src="imagens/NFC_4.png" alt="NFC para pagamento">
+                </button>
             </div>
         </section>
+
+        <!-- Pop-up de pagamento -->
+        <div class="popup-fundo" id="popup-pagamento" hidden>
+            <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-titulo">
+                <h3 id="popup-titulo"></h3>
+                <p class="popup-valor" id="popup-valor"></p>
+                <p id="popup-destino"></p>
+                <p id="popup-saldo"></p>
+                <button type="button" class="popup-fechar" id="popup-fechar">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Menu de navegação inferior (mantém o teu) -->
+        <nav class="barra-navegacao">
+            <a href="inicio.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span>Início</span>
+            </a>
+
+            <a href="carteira.html" class="botao-navegacao ativo">
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+                <span>Carteira</span>
+            </a>
+
+            <a href="perfil.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+                <span>Perfil</span>
+            </a>
+        </nav>
+
+    </main>
+</body>
+</html>
 
 
 

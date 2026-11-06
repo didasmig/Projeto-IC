@@ -144,10 +144,20 @@ function mostrarMovimentos() {
             valorMovimento.classList.add("valor-positivo");
 
             valorMovimento.textContent = "+ " + valorFormatado + " €";
+        } else if (movimento.tipo === "pagamento") {
 
-        } else {
-            return;
-        }
+                    // Pagamento: valor negativo
+                    nomeMovimento.textContent =
+                        "Pagamento - " + movimento.destinatario;
+
+                    valorMovimento.classList.add("valor-negativo");
+
+                    valorMovimento.textContent = "- " + valorFormatado + " €";
+
+                } else {
+                    return;
+                }
+      
 
         elementoMovimento.appendChild(nomeMovimento);
         elementoMovimento.appendChild(valorMovimento);
