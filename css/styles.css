@@ -431,3 +431,87 @@ button {
 .popup-fechar:hover {
     background-color: #6341b5;
 }
+
+/* =================================
+   PÁGINA PERFIL - STYLES
+================================= */
+
+.titulo-perfil {
+    color: #292929;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Cartão do utilizador */
+
+.cartao-perfil {
+    background-color: #e9e2f7;
+    border-radius: 12px;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+}
+
+.avatar-perfil {
+    background-color: #805ad5;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 35px;
+}
+
+.nome-perfil {
+    color: #392568;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subtitulo-perfil {
+    color: #666;
+    font-size: 13px;
+}
+
+/* Informações pessoais */
+
+.secao-informacoes-perfil h3 {
+    color: #292929;
+    font-size: 17px;
+}
+
+.informacoes-perfil {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+}
+
+.campo-perfil {
+    border-bottom: 1px solid #eee;
+}
+
+.campo-perfil:last-child {
+    border-bottom: none;
+}
+
+.etiqueta-perfil {
+    color: #777;
+    font-size: 12px;
+}
+
+.valor-perfil {
+    color: #292929;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Botão editar perfil */
+
+.botao-editar-perfil {
+    border: none;
+    border-radius: 8px;
+    background-color: #805ad5;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.botao-editar-perfil:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}

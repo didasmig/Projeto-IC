@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,15 +7,15 @@
 
     <title>BanDy - Perfil</title>
 
-    <!-- Ficheiros CSS -->
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/positions.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- JavaScript -->
-    <script src="" defer></script>
     <script src="js/saldo.js" defer></script>
-    <!-- Script para ícones -->
-    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,13 +24,9 @@
         <!-- Cabeçalho -->
         <header class="barra-superior">
 
-            <a href="inicio.html" class="botao-voltar">
-                ←
-            </a>
+            <a href="inicio.html" class="botao-voltar">←</a>
 
-            <span class="titulo-cabecalho">
-                BanDy
-            </span>
+            <span class="titulo-cabecalho">BanDy</span>
 
             <span class="saldo-cabecalho" data-saldo>
                 34,29 €
@@ -37,26 +34,65 @@
 
         </header>
 
+        <!-- Conteúdo do perfil -->
         <section class="conteudo-perfil">
-            <div>
-                <h2 class="titulo-perfil">Perfil</h2>
+
+            <h2 class="titulo-perfil">O meu perfil</h2>
+
+            <!-- Cartão do utilizador -->
+            <div class="cartao-perfil">
+
+                <div class="avatar-perfil">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3 class="nome-perfil">Nome do utilizador</h3>
+
+                <p class="subtitulo-perfil">
+                    Conta BanDy
+                </p>
+
             </div>
-            <div class="informacoes-perfil">
-                <p><strong>Nome:</strong> nome</p>
-                <p><strong>Email:</strong> email</p>
-                <p><strong>Data de Nascimento:</strong> data</p>
-                <p><strong>Género:</strong> género</p>
+
+            <!-- Informações pessoais -->
+            <div class="secao-informacoes-perfil">
+
+                <h3>Informações pessoais</h3>
+
+                <div class="informacoes-perfil">
+
+                    <div class="campo-perfil">
+                        <span class="etiqueta-perfil">Nome</span>
+                        <span class="valor-perfil">Nome do utilizador</span>
+                    </div>
+
+                    <div class="campo-perfil">
+                        <span class="etiqueta-perfil">Email</span>
+                        <span class="valor-perfil">utilizador@email.com</span>
+                    </div>
+
+                    <div class="campo-perfil">
+                        <span class="etiqueta-perfil">Data de nascimento</span>
+                        <span class="valor-perfil">01/01/2000</span>
+                    </div>
+
+                    <div class="campo-perfil">
+                        <span class="etiqueta-perfil">Género</span>
+                        <span class="valor-perfil">Não especificado</span>
+                    </div>
+
+                </div>
+
             </div>
+
+            <!-- Botão de edição -->
+            <button type="button" class="botao-editar-perfil" disabled>
+                <i class="fa-solid fa-pen"></i>
+                Editar perfil
+            </button>
+
         </section>
 
-
-
-
-
-
-
-
-        
         <!-- Menu de navegação inferior -->
         <nav class="barra-navegacao">
 
@@ -74,7 +110,7 @@
                 <span>Carteira</span>
             </a>
 
-            <a href="perfil.html" class="botao-navegacao ativo">
+            <a href="perfil.html" class="botao-navegacao ativo" aria-current="page">
                 <span class="icone-navegacao">
                     <i class="fa-solid fa-user"></i>
                 </span>
@@ -84,6 +120,5 @@
         </nav>
 
     </main>
-
 </body>
 </html>

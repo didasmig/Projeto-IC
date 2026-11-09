@@ -378,3 +378,64 @@
 .formulario-transferencia button:hover { 
     background: #6341b5; 
 }
+
+
+/* =================================
+   PÁGINA PERFIL - POSITIONS
+================================= */
+
+.conteudo-perfil {
+    width: 100%;
+    padding: 25px;
+}
+
+.titulo-perfil {
+    margin-bottom: 20px;
+}
+
+.cartao-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px;
+    margin-bottom: 25px;
+}
+
+.avatar-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.nome-perfil {
+    margin-bottom: 5px;
+}
+
+.secao-informacoes-perfil h3 {
+    margin-bottom: 12px;
+}
+
+.informacoes-perfil {
+    padding: 5px 15px;
+    margin-bottom: 20px;
+}
+
+.campo-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px 0;
+}
+
+.botao-editar-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 48px;
+}
+
