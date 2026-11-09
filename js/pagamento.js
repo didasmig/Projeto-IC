@@ -35,10 +35,14 @@ function simularPagamento(metodo) {
     const novoSaldo = saldo - compra.valor;
     atualizarSaldo(novoSaldo);
 
-    // Guardar no histórico de movimentos
-    const movimentos = JSON.parse(
-        localStorage.getItem("movimentosBanDy") || "[]"
-    );
+    
+    // Guardar pagamento no histórico da conta atual
+    guardarMovimento({
+        tipo: "pagamento",
+        destinatario: compra.destino,
+        valor: compra.valor
+    });
+
 
     movimentos.unshift({
         tipo: "pagamento",

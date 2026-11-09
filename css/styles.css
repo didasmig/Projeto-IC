@@ -515,3 +515,202 @@ button {
     opacity: 0.65;
     cursor: not-allowed;
 }
+
+/* =================================
+   AUTENTICAÇÃO / LOG-IN DA BANDY
+================================= */
+
+/* Esconder elementos não visíveis */
+[hidden] {
+    display: none !important;
+}
+
+/* Fundo escuro do pop-up */
+.modal-bandy-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgb(0 0 0 / 60%);
+}
+
+/* Caixa principal */
+.modal-bandy-caixa {
+    position: relative;
+
+    width: 100%;
+    max-width: 370px;
+    max-height: 90vh;
+
+    padding: 26px 22px;
+    overflow-y: auto;
+
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgb(0 0 0 / 18%);
+
+    text-align: center;
+}
+
+/* Título */
+.modal-bandy-caixa h2 {
+    margin: 5px 0 15px;
+
+    color: #392568;
+    font-size: 21px;
+}
+
+/* Texto */
+.modal-bandy-caixa p {
+    margin-bottom: 18px;
+
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Botão X */
+.modal-bandy-x {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+
+    padding: 4px 8px;
+
+    border: none;
+    background: transparent;
+
+    color: #666;
+    font-size: 26px;
+}
+
+/* Ícone de bloqueio */
+.modal-bandy-icone {
+    margin-bottom: 12px;
+
+    color: #805ad5;
+    font-size: 33px;
+}
+
+/* Botões */
+.modal-bandy-botao,
+.modal-bandy-secundario {
+    width: 100%;
+    min-height: 44px;
+
+    margin-top: 8px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.modal-bandy-botao {
+    background-color: #805ad5;
+    color: white;
+}
+
+.modal-bandy-botao:hover {
+    background-color: #6341b5;
+}
+
+.modal-bandy-botao:disabled {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+.modal-bandy-secundario {
+    background-color: #eee9f7;
+    color: #392568;
+}
+
+/* Separadores Log-In e Registo */
+.modal-bandy-separadores {
+    display: flex;
+    gap: 7px;
+
+    margin: 18px 0;
+}
+
+.modal-bandy-separadores button {
+    flex: 1;
+
+    padding: 11px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #eee9f7;
+    color: #392568;
+}
+
+.modal-bandy-separadores button.selecionado {
+    background-color: #805ad5;
+    color: #fff;
+}
+
+/* Formulário */
+.formulario-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    text-align: left;
+}
+
+.formulario-auth label {
+    display: block;
+
+    color: #392568;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.formulario-auth input,
+.formulario-auth select {
+    width: 100%;
+
+    margin-top: 5px;
+    padding: 11px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    background-color: white;
+    color: #222;
+    font-size: 15px;
+}
+
+/* Mensagens de erro */
+.formulario-auth .erro-auth {
+    margin: 0;
+    color: #a33b3b;
+}
+
+/* Botão de submissão */
+.formulario-auth .modal-bandy-botao {
+    margin-top: 8px;
+}
+
+/* Link para iniciar sessão no lugar do saldo */
+
+.link-iniciar-sessao {
+    color: #805ad5;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link-iniciar-sessao:hover {
+    color: #6341b5;
+    text-decoration: underline;
+}

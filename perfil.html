@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- JavaScript -->
+    <script src="js/autenticacao.js" defer></script>
     <script src="js/saldo.js" defer></script>
+    <script src="js/perfil.js" defer></script>
 </head>
 
 <body>
@@ -35,7 +37,41 @@
         </header>
 
         <!-- Conteúdo do perfil -->
-        <section class="conteudo-perfil">
+        
+        <!-- PERFIL SEM LOGIN -->
+
+        <section class="conteudo-perfil" id="perfil-visitante" hidden>
+
+            <h2 class="titulo-perfil">O meu perfil</h2>
+
+            <div class="cartao-perfil">
+
+                <div class="avatar-perfil">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3 class="nome-perfil">
+                    Bem-vindo à BanDy
+                </h3>
+
+                <p class="subtitulo-perfil">
+                    Inicia sessão para ver os teus dados.
+                </p>
+
+            </div>
+
+            <button type="button"
+                    class="botao-editar-perfil"
+                    id="botao-login">
+                Log-In
+            </button>
+
+        </section>
+
+
+        <!-- PERFIL COM LOGIN -->
+
+        <section class="conteudo-perfil" id="perfil-utilizador" hidden>
 
             <h2 class="titulo-perfil">O meu perfil</h2>
 
@@ -46,7 +82,7 @@
                     <i class="fa-solid fa-user"></i>
                 </div>
 
-                <h3 class="nome-perfil">Nome do utilizador</h3>
+                <h3 class="nome-perfil" id="perfil-nome-destaque"></h3>
 
                 <p class="subtitulo-perfil">
                     Conta BanDy
@@ -63,35 +99,37 @@
 
                     <div class="campo-perfil">
                         <span class="etiqueta-perfil">Nome</span>
-                        <span class="valor-perfil">Nome do utilizador</span>
+                        <span class="valor-perfil" id="perfil-nome"></span>
                     </div>
 
                     <div class="campo-perfil">
                         <span class="etiqueta-perfil">Email</span>
-                        <span class="valor-perfil">utilizador@email.com</span>
+                        <span class="valor-perfil" id="perfil-email"></span>
                     </div>
 
                     <div class="campo-perfil">
                         <span class="etiqueta-perfil">Data de nascimento</span>
-                        <span class="valor-perfil">01/01/2000</span>
+                        <span class="valor-perfil" id="perfil-data"></span>
                     </div>
 
                     <div class="campo-perfil">
                         <span class="etiqueta-perfil">Género</span>
-                        <span class="valor-perfil">Não especificado</span>
+                        <span class="valor-perfil" id="perfil-genero"></span>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- Botão de edição -->
-            <button type="button" class="botao-editar-perfil" disabled>
-                <i class="fa-solid fa-pen"></i>
-                Editar perfil
+            <!-- Terminar sessão -->
+            <button type="button"
+                    class="botao-editar-perfil"
+                    id="botao-terminar-sessao">
+                Terminar sessão
             </button>
 
         </section>
+
 
         <!-- Menu de navegação inferior -->
         <nav class="barra-navegacao">

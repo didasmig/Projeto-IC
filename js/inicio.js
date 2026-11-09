@@ -1,73 +1,96 @@
+
 // CARTÕES DOS FESTIVAIS
 
 function abrirFestival(nome) {
+
+    if (!temSessao()) {
+        mostrarBloqueioBanDy();
+        return;
+    }
+
     alert("Abrir: " + nome);
 }
 
+// ADICIONAR FESTIVAL
+
 function adicionarFestival() {
+
+    if (!temSessao()) {
+        mostrarBloqueioBanDy();
+        return;
+    }
 
     const nome = prompt("Qual é o nome do festival?");
 
     if (nome && nome.trim() !== "") {
         alert(nome.trim() + " foi adicionado!");
     }
-
 }
 
-
-
-// NAVEGAÇÃO INFERIOR
-
-// Destacar a página atualmente selecionada
+/* =================================
+   NAVEGAÇÃO INFERIOR
+================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const paginaAtual = window.location.pathname;
-    const botoes = document.querySelectorAll(".botao-navegacao");
+
+    const botoes = document.querySelectorAll(
+        ".botao-navegacao"
+    );
 
     botoes.forEach((botao) => {
 
         botao.classList.remove("ativo");
 
-        if (botao.getAttribute("href") === paginaAtual.split("/").pop()) {
+        if (
+            botao.getAttribute("href") ===
+            paginaAtual.split("/").pop()
+        ) {
             botao.classList.add("ativo");
         }
 
     });
-
 });
 
-// EVENTOS DOS BOTÕES
+/* =================================
+   EVENTOS DOS BOTÕES
+================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // Botão voltar
-    document.querySelector('[data-action="back"]')
-        .addEventListener("click", () => {
+    const botaoVoltar = document.querySelector(
+        '[data-action="back"]'
+    );
+
+    if (botaoVoltar) {
+        botaoVoltar.addEventListener("click", () => {
             history.back();
         });
+    }
 
     // Adicionar festival
-    document.querySelector('[data-action="add-festival"]')
-        .addEventListener("click", adicionarFestival);
+    const botaoAdicionar = document.querySelector(
+        '[data-action="add-festival"]'
+    );
+
+    if (botaoAdicionar) {
+        botaoAdicionar.addEventListener(
+            "click",
+            adicionarFestival
+        );
+    }
 
     // Cartões dos festivais
-    document.querySelectorAll("[data-festival]").forEach((card) => {
+    document.querySelectorAll("[data-festival]")
+        .forEach((card) => {
 
-        card.addEventListener("click", () => {
-            abrirFestival(card.dataset.festival);
+            card.addEventListener("click", () => {
+                abrirFestival(card.dataset.festival);
+            });
+
         });
-
-    });
-
-    // Menu inferior
-    document.querySelectorAll("[data-page]").forEach((button) => {
-
-        button.addEventListener("click", () => {
-            mudarPagina(button, button.dataset.page);
-        });
-
-    });
 
 });
 

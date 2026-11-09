@@ -1,12 +1,15 @@
-const botoesOcultarSaldo = document.querySelector(
+
+// OCULTAR E MOSTRAR SALDO
+
+const botaoOcultarSaldo = document.querySelector(
     '[data-acao="ocultar-saldo"]'
 );
 
 let saldoVisivel = true;
 
-if (botoesOcultarSaldo) {
+if (botaoOcultarSaldo) {
 
-    botoesOcultarSaldo.addEventListener("click", () => {
+    botaoOcultarSaldo.addEventListener("click", () => {
 
         saldoVisivel = !saldoVisivel;
 
@@ -14,34 +17,32 @@ if (botoesOcultarSaldo) {
 
             mostrarSaldo();
 
-            botoesOcultarSaldo.innerHTML = "◉";
+            botaoOcultarSaldo.innerHTML = "◉";
 
         } else {
 
-            document.querySelectorAll("[data-saldo]").forEach((elemento) => {
-                elemento.textContent = "••••••";
-            });
+            document.querySelectorAll("[data-saldo]")
+                .forEach((elemento) => {
+                    elemento.textContent = "••••••";
+                });
 
-            botoesOcultarSaldo.innerHTML = "◎";
-
+            botaoOcultarSaldo.innerHTML = "◎";
         }
-
     });
-
 }
+
+/* =================================
+   BOTÕES DA CARTEIRA
+================================= */
 
 const botaoDepositar = document.querySelector(
     '[data-acao="depositar"]'
 );
 
 if (botaoDepositar) {
-
     botaoDepositar.addEventListener("click", () => {
-
         window.location.href = "depositar.html";
-
     });
-
 }
 
 const botaoPagamento = document.querySelector(
@@ -59,61 +60,49 @@ const botaoTransferir = document.querySelector(
 );
 
 if (botaoTransferir) {
-
     botaoTransferir.addEventListener("click", () => {
-
         window.location.href = "transferir.html";
-
     });
-
 }
-
 
 const botaoConsultar = document.querySelector(
     '[data-acao="conta-conjunta"]'
 );
 
 if (botaoConsultar) {
-
     botaoConsultar.addEventListener("click", () => {
-
         window.location.href = "conta_conjunta.html";
-
     });
-
 }
 
-// MOSTRAR ÚLTIMOS MOVIMENTOS
+/* =================================
+   ÚLTIMOS MOVIMENTOS
+================================= */
 
 function mostrarMovimentos() {
-    const listaMovimentos = document.querySelector("#lista-movimentos");
+
+    const listaMovimentos = document.querySelector(
+        "#lista-movimentos"
+    );
 
     if (!listaMovimentos) {
         return;
     }
 
-    // Guardar os movimentos iniciais apenas uma vez
-    if (localStorage.getItem("movimentosIniciaisBanDy") === null) {
-        const movimentosIniciais = listaMovimentos.innerHTML;
+    // Guardar os 3 movimentos iniciais do HTML
+    const movimentosIniciais = listaMovimentos.innerHTML;
 
-        localStorage.setItem(
-            "movimentosIniciaisBanDy",
-            movimentosIniciais
-        );
-    }
-
-    const movimentosIniciais = localStorage.getItem("movimentosIniciaisBanDy");
-
-    const movimentos = JSON.parse(
-        localStorage.getItem("movimentosBanDy") || "[]"
-    );
+    // Obter movimentos da conta atual
+    const movimentos = obterMovimentos();
 
     listaMovimentos.innerHTML = "";
 
-    // Mostrar ambos os depósitos e as transferências
     movimentos.slice(0, 10).forEach((movimento) => {
 
-        const elementoMovimento = document.createElement("article");
+        const elementoMovimento = document.createElement(
+            "article"
+        );
+
         elementoMovimento.classList.add("movimento");
 
         const nomeMovimento = document.createElement("span");
@@ -121,43 +110,48 @@ function mostrarMovimentos() {
 
         const valorMovimento = document.createElement("span");
 
-        const valorFormatado = Number(movimento.valor).toLocaleString("pt-PT", {
+        const valorFormatado = Number(
+            movimento.valor
+        ).toLocaleString("pt-PT", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         });
 
+        // Transferência
         if (movimento.tipo === "transferencia") {
 
-            // Transferência: valor negativo
             nomeMovimento.textContent =
                 "Transferência - " + movimento.destinatario;
 
             valorMovimento.classList.add("valor-negativo");
 
-            valorMovimento.textContent = "- " + valorFormatado + " €";
+            valorMovimento.textContent =
+                "- " + valorFormatado + " €";
 
+        // Depósito
         } else if (movimento.tipo === "deposito") {
 
-            // Depósito: valor positivo
             nomeMovimento.textContent = "Depósito";
 
             valorMovimento.classList.add("valor-positivo");
 
-            valorMovimento.textContent = "+ " + valorFormatado + " €";
+            valorMovimento.textContent =
+                "+ " + valorFormatado + " €";
+
+        // Pagamento
         } else if (movimento.tipo === "pagamento") {
 
-                    // Pagamento: valor negativo
-                    nomeMovimento.textContent =
-                        "Pagamento - " + movimento.destinatario;
+            nomeMovimento.textContent =
+                "Pagamento - " + movimento.destinatario;
 
-                    valorMovimento.classList.add("valor-negativo");
+            valorMovimento.classList.add("valor-negativo");
 
-                    valorMovimento.textContent = "- " + valorFormatado + " €";
+            valorMovimento.textContent =
+                "- " + valorFormatado + " €";
 
-                } else {
-                    return;
-                }
-      
+        } else {
+            return;
+        }
 
         elementoMovimento.appendChild(nomeMovimento);
         elementoMovimento.appendChild(valorMovimento);
@@ -165,11 +159,16 @@ function mostrarMovimentos() {
         listaMovimentos.appendChild(elementoMovimento);
     });
 
-    // Completar até 10 movimentos com os 3 iniciais
-    const quantidadeRestante = Math.max(0, 10 - movimentos.length);
+    // Completar com os 3 movimentos de exemplo
+    const quantidadeRestante = Math.max(
+        0,
+        10 - movimentos.length
+    );
 
     if (quantidadeRestante > 0) {
+
         const recipiente = document.createElement("div");
+
         recipiente.innerHTML = movimentosIniciais;
 
         const movimentosAntigos = Array.from(

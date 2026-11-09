@@ -18,9 +18,14 @@ document.getElementById("transferForm")?.addEventListener("submit", (e) => {
 
     atualizarSaldo(saldo - quantia);
 
-    const movimentos = JSON.parse(
-        localStorage.getItem("movimentosBanDy") || "[]"
-    );
+    
+    // Guardar transferência no histórico da conta atual
+    guardarMovimento({
+        tipo: "transferencia",
+        destinatario: destinatario,
+        valor: quantia
+    });
+
 
     const novoMovimento = {
         tipo: "transferencia",
