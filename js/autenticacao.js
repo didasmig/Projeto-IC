@@ -11,6 +11,7 @@ const CHAVE_SESSAO_BANDY = "sessaoBanDyV2";
 const PAGINAS_PROTEGIDAS = [
     "carteira.html",
     "depositar.html",
+    "metodo_pagamento.html",
     "transferir.html",
     "pagamento.html",
     "conta_conjunta.html"

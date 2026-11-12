@@ -77,52 +77,16 @@ botaoConfirmar.addEventListener("click", () => {
     }
 
 
-    // Obter saldo atual
-    const saldoAtual = obterSaldo();
-
-
-    // Calcular novo saldo
-    const novoSaldo = saldoAtual + valor;
-
-
-    // Guardar novo saldo
-    atualizarSaldo(novoSaldo);
-
-    
-    // Guardar depósito no histórico da conta atual
-    guardarMovimento({
-        tipo: "deposito",
-        valor: valor
-    });
-
-
-    const novoMovimento = {
-        tipo: "deposito",
-        valor: valor,
-        data: new Date().toISOString()
-    };
-
-    movimentos.unshift(novoMovimento);
-
-    // Guardar apenas os 10 movimentos mais recentes
-    const movimentosRecentes = movimentos.slice(0, 10);
-
-    localStorage.setItem(
-        "movimentosBanDy",
-        JSON.stringify(movimentosRecentes)
+    // Guardar o depósito em curso e ir para a página do método escolhido.
+    // O saldo só é atualizado depois de o pagamento ser confirmado lá.
+    sessionStorage.setItem(
+        "depositoPendenteBanDy",
+        JSON.stringify({
+            valor: Math.round(valor * 100) / 100,
+            metodo: metodo
+        })
     );
 
-
-    // Mostrar confirmação
-    alert(
-        "Depósito realizado com sucesso!\n\n" +
-        "Valor: " + valor.toFixed(2) + " €\n" +
-        "Método: " + metodo + "\n" +
-        "Novo saldo: " + novoSaldo.toFixed(2) + " €"
-    );
-
-
-    // Regressar à carteira
-    window.location.href = "carteira.html";
+    window.location.href = "metodo_pagamento.html";
 
 });

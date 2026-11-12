@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BanDy - Pagar depósito</title>
+
+    <!-- Ficheiros CSS -->
+    <link rel="stylesheet" href="css/positions.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JavaScript -->
+    <script src="js/autenticacao.js" defer></script>
+    <script src="js/saldo.js" defer></script>
+    <script src="js/metodo_pagamento.js" defer></script>
+
+    <!-- Script para ícones -->
+    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="aplicacao">
+
+        <!-- Cabeçalho -->
+        <header class="barra-superior">
+            <a href="depositar.html" class="botao-voltar">←</a>
+            <span class="titulo-cabecalho">BanDy</span>
+            <span class="saldo-cabecalho" data-saldo>34,29 €</span>
+        </header>
+
+        <section class="conteudo-metodo">
+
+            <h2 class="titulo-deposito" id="titulo-metodo">Pagar depósito</h2>
+
+            <!-- Resumo do depósito -->
+            <div class="resumo-deposito">
+                <span>Valor a depositar</span>
+                <strong id="resumo-valor"></strong>
+            </div>
+
+
+            <!-- MBWay -->
+            <form class="formulario-transferencia formulario-conta" data-ecra="MBWay" novalidate hidden>
+
+                <p class="texto-conta-conjunta">
+                    Vamos enviar um pedido de pagamento para a tua app MB WAY.
+                </p>
+
+                <label for="telemovel-mbway">Número de telemóvel</label>
+                <input id="telemovel-mbway" type="tel" inputmode="numeric"
+                       placeholder="912 345 678" autocomplete="off">
+
+                <p class="mensagem-conta" role="alert"></p>
+
+                <button type="submit">Enviar pedido</button>
+            </form>
+
+
+            <!-- PayPal -->
+            <form class="formulario-transferencia formulario-conta" data-ecra="PayPal" novalidate hidden>
+
+                <p class="texto-conta-conjunta">
+                    Inicia sessão na tua conta PayPal para autorizar o pagamento.
+                </p>
+
+                <label for="email-paypal">Email</label>
+                <input id="email-paypal" type="email"
+                       placeholder="email@exemplo.com" autocomplete="off">
+
+                <label for="palavra-passe-paypal">Palavra-passe</label>
+                <input id="palavra-passe-paypal" type="password" autocomplete="off">
+
+                <p class="mensagem-conta" role="alert"></p>
+
+                <button type="submit">Autorizar pagamento</button>
+            </form>
+
+
+            <!-- Multibanco -->
+            <form class="formulario-transferencia formulario-conta" data-ecra="Multibanco" novalidate hidden>
+
+                <p class="texto-conta-conjunta">
+                    Paga num multibanco ou no homebanking com os dados abaixo.
+                </p>
+
+                <dl class="dados-multibanco">
+                    <div><dt>Entidade</dt><dd id="mb-entidade"></dd></div>
+                    <div><dt>Referência</dt><dd id="mb-referencia"></dd></div>
+                    <div><dt>Montante</dt><dd id="mb-montante"></dd></div>
+                </dl>
+
+                <p class="mensagem-conta" role="alert"></p>
+
+                <button type="submit">Já paguei</button>
+            </form>
+
+
+            <!-- Apple Pay -->
+            <form class="formulario-transferencia formulario-conta" data-ecra="ApplePay" novalidate hidden>
+
+                <p class="texto-conta-conjunta">
+                    Confirma o pagamento com Apple Pay no teu dispositivo.
+                </p>
+
+                <p class="mensagem-conta" role="alert"></p>
+
+                <button type="submit">Confirmar com Face ID</button>
+            </form>
+            
+            <p class="mensagem-conta sucesso" id="estado-processamento" role="status"></p>
+
+            <a href="depositar.html" class="botao-secundario ligacao-botao">Alterar método ou valor</a>
+
+        </section>
+
+
+        <!-- Pop-up de depósito concluído -->
+        <div class="popup-fundo" id="popup-deposito" hidden>
+            <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-deposito-titulo">
+                <h3 id="popup-deposito-titulo">Depósito realizado</h3>
+                <p class="popup-valor valor-positivo" id="popup-deposito-valor"></p>
+                <p id="popup-deposito-metodo"></p>
+                <p id="popup-deposito-saldo"></p>
+                <a href="carteira.html" class="popup-fechar ligacao-botao">Voltar à carteira</a>
+            </div>
+        </div>
+
+
+        <!-- Menu inferior -->
+        <nav class="barra-navegacao">
+
+            <a href="inicio.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span>Início</span>
+            </a>
+
+            <a href="carteira.html" class="botao-navegacao ativo">
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+                <span>Carteira</span>
+            </a>
+
+            <a href="perfil.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+</body>
+</html>

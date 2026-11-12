@@ -224,6 +224,7 @@ function criarContaConjunta(evento) {
 function abrirFormularioMovimento(modo) {
 
     fecharFormularioMembro();
+    fecharFormularioEliminar();
 
     modoMovimento = modo;
 
@@ -262,6 +263,7 @@ function fecharFormularioMovimento() {
 function abrirFormularioMembro() {
 
     fecharFormularioMovimento();
+    fecharFormularioEliminar();
 
     document.getElementById("email-novo-membro").value = "";
     document.getElementById("erro-membro").textContent = "";
@@ -272,6 +274,123 @@ function abrirFormularioMembro() {
 
 function fecharFormularioMembro() {
     document.getElementById("formulario-membro").hidden = true;
+}
+
+/* =================================
+   ELIMINAR CONTA CONJUNTA
+================================= */
+
+// Dividir o saldo pelos titulares: cada um recebe a mesma parte e
+// os cêntimos que sobram ficam para quem elimina a conta
+function dividirSaldo(conta, idDeQuemElimina) {
+
+    const total = Math.round(conta.saldo * 100);
+    const parte = Math.floor(total / conta.titulares.length);
+    const resto = total - parte * conta.titulares.length;
+
+    return conta.titulares.map((id) => ({
+        id: id,
+        valor: (parte + (id === idDeQuemElimina ? resto : 0)) / 100
+    }));
+}
+
+// Devolver dinheiro à conta pessoal de um titular
+function creditarUtilizador(id, valor) {
+
+    const chaveSaldo = `BanDy_${id}_saldoBanDy`;
+    const chaveMovimentos = `BanDy_${id}_movimentosBanDy`;
+
+    const atual = localStorage.getItem(chaveSaldo) === null
+        ? SALDO_INICIAL
+        : Number(localStorage.getItem(chaveSaldo));
+
+    localStorage.setItem(chaveSaldo, arredondar(atual + valor).toFixed(2));
+
+    let movimentos = [];
+
+    try {
+        movimentos = JSON.parse(localStorage.getItem(chaveMovimentos) || "[]");
+    } catch (erro) {
+        movimentos = [];
+    }
+
+    if (!Array.isArray(movimentos)) {
+        movimentos = [];
+    }
+
+    movimentos.unshift({
+        tipo: "deposito",
+        valor: valor,
+        data: new Date().toISOString()
+    });
+
+    localStorage.setItem(chaveMovimentos, JSON.stringify(movimentos.slice(0, 10)));
+}
+
+function abrirFormularioEliminar() {
+
+    const conta = obterContaConjunta();
+
+    if (!conta) {
+        return;
+    }
+
+    fecharFormularioMovimento();
+    fecharFormularioMembro();
+
+    const partes = dividirSaldo(conta, obterUtilizador().id);
+    const base = partes.length ? Math.min(...partes.map((p) => p.valor)) : 0;
+
+    let aviso = "Vais eliminar a conta \"" + conta.nome + "\". ";
+
+    if (conta.saldo > 0) {
+        aviso += "O saldo de " + formatarEuros(conta.saldo) +
+            " é dividido por " + conta.titulares.length +
+            " titulares (cerca de " + formatarEuros(base) + " cada). ";
+    } else {
+        aviso += "A conta não tem saldo. ";
+    }
+
+    aviso += "Esta ação não pode ser desfeita.";
+
+    document.getElementById("aviso-eliminar").textContent = aviso;
+    document.getElementById("formulario-eliminar").hidden = false;
+}
+
+function fecharFormularioEliminar() {
+    document.getElementById("formulario-eliminar").hidden = true;
+}
+
+function eliminarContaConjunta(evento) {
+
+    evento.preventDefault();
+
+    const contas = obterContasConjuntas();
+    const eu = obterUtilizador();
+    const conta = contas.find((item) => item.titulares.includes(eu.id));
+
+    if (!conta) {
+        return;
+    }
+
+    // Devolver a cada titular a sua parte do saldo
+    if (conta.saldo > 0) {
+        dividirSaldo(conta, eu.id).forEach((parte) => {
+            if (parte.valor > 0) {
+                creditarUtilizador(parte.id, parte.valor);
+            }
+        });
+    }
+
+    guardarContasConjuntas(contas.filter((item) => item.id !== conta.id));
+
+    fecharFormularioEliminar();
+    mostrarSaldo();
+    mostrarContaConjunta();
+
+    document.getElementById("aviso-conta-eliminada").textContent =
+        "A conta \"" + conta.nome + "\" foi eliminada" +
+        (conta.saldo > 0 ? " e o saldo foi dividido pelos titulares." : ".");
 }
 
 /* =================================
@@ -466,6 +585,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("formulario-membro")
         .addEventListener("submit", adicionarMembro);
 
+    document.getElementById("formulario-eliminar")
+        .addEventListener("submit", eliminarContaConjunta);
+
+    document.getElementById("botao-cancelar-eliminar")
+        .addEventListener("click", fecharFormularioEliminar);
+
     document.getElementById("botao-cancelar-membro")
         .addEventListener("click", fecharFormularioMembro);
 
@@ -474,6 +599,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (botao.dataset.conjunta === "membro") {
                 abrirFormularioMembro();
+            } else if (botao.dataset.conjunta === "eliminar") {
+                abrirFormularioEliminar();
             } else {
                 abrirFormularioMovimento(botao.dataset.conjunta);
             }

@@ -391,7 +391,7 @@ button {
 }
 
 .popup .popup-valor {
-    color: #b3261e;
+    color: #3cb31e;
     font-size: 30px;
     font-weight: bold;
 }
@@ -710,6 +710,10 @@ button {
     font-size: 14px;
 }
 
+.formulario-conta {
+    margin-bottom: 25px;
+}
+
 .formulario-conta button {
     font-size: 100%;
 }
@@ -725,4 +729,90 @@ button {
     min-height: 18px;
     color: #b3261e;
     font-size: 13px;
+}
+
+.mensagem-conta.sucesso {
+    color: #1b6e3a;
+}
+
+.botao-operacao-perigo {
+    border-color: #b3261e;
+    color: #b3261e;
+}
+
+.formulario-conta .botao-perigo {
+    background: #b3261e;
+}
+
+
+/* =================================
+   PÁGINA DO MÉTODO DE PAGAMENTO
+================================= */
+
+.conteudo-metodo {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+.resumo-deposito {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 0 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #e9e2f7;
+    color: #24134f;
+}
+
+.resumo-deposito strong {
+    font-size: 22px;
+}
+
+.dados-multibanco {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border: 1.5px solid #767676;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.dados-multibanco div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dados-multibanco dt {
+    color: #4a4a4a;
+}
+
+.dados-multibanco dd {
+    font-weight: bold;
+}
+
+.nota-simulacao {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.ligacao-botao {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.botao-secundario {
+    margin-top: 8px;
+    padding: 12px;
+    border: 1.5px solid #5b3cc4;
+    border-radius: 12px;
+    background: #fff;
+    color: #5b3cc4;
+    font-weight: 600;
+}
+
+a.popup-fechar {
+    display: inline-block;
 }

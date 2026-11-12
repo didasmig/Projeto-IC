@@ -45,6 +45,8 @@
             <!-- Ainda sem conta conjunta: formulário de criação -->
             <section id="sem-conta" hidden>
 
+                <p class="mensagem-conta sucesso" id="aviso-conta-eliminada" role="status"></p>
+
                 <h2 class="titulo-conta-conjunta">Criar conta conjunta</h2>
 
                 <p class="texto-conta-conjunta">
@@ -132,6 +134,13 @@
                         <span class="icone-operacao"><i class="fa-solid fa-users"></i></span>
                     </button>
 
+                    <button class="botao-operacao botao-operacao-perigo"
+                            type="button"
+                            data-conjunta="eliminar">
+                        <span>Eliminar conta conjunta</span>
+                        <span class="icone-operacao"><i class="fa-solid fa-trash"></i></span>
+                    </button>
+
                 </section>
 
                 <!-- Formulário de depósito / levantamento -->
@@ -170,6 +179,19 @@
                     <button type="submit">Adicionar</button>
                     <button type="button" class="botao-secundario"
                             id="botao-cancelar-membro">Cancelar</button>
+
+                </form>
+
+                <!-- Confirmação para eliminar a conta -->
+                <form id="formulario-eliminar"
+                      class="formulario-transferencia formulario-conta"
+                      novalidate hidden>
+
+                    <p class="texto-conta-conjunta" id="aviso-eliminar"></p>
+
+                    <button type="submit" class="botao-perigo">Eliminar conta</button>
+                    <button type="button" class="botao-secundario"
+                            id="botao-cancelar-eliminar">Cancelar</button>
 
                 </form>
 
