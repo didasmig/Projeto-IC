@@ -391,7 +391,7 @@ button {
 }
 
 .popup .popup-valor {
-    color: #3cb31e;
+    color: #b3261e;
     font-size: 30px;
     font-weight: bold;
 }
@@ -815,4 +815,65 @@ a.botao-secundario {
 
 a.popup-fechar {
     display: inline-block;
+}
+
+
+/* =================================
+   CONFIRMAÇÃO E NOTIFICAÇÃO DE TRANSFERÊNCIA
+================================= */
+
+.popup-botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.popup-botoes .popup-fechar {
+    flex: 1;
+    margin-top: 0;
+    padding: 10px 12px;
+}
+
+.popup .popup-cancelar {
+    border: 1.5px solid #5b3cc4;
+    background-color: #fff;
+    color: #5b3cc4;
+}
+
+.notificacao {
+    position: absolute;
+    top: 62px;
+    right: 12px;
+    left: 12px;
+    z-index: 120;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    border-left: 5px solid #1b6e3a;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+}
+
+.notificacao-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #1f1f1f;
+    font-size: 14px;
+}
+
+.notificacao-texto strong {
+    color: #1b6e3a;
+}
+
+.notificacao-fechar {
+    border: none;
+    background: none;
+    color: #3c3c3c;
+    font-size: 22px;
+    line-height: 1;
 }

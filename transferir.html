@@ -50,25 +50,55 @@
                 <label for="quantia">Quantia (€)</label>
                 <input type="number" id="quantia" placeholder="0,00" step="0.01" min="0.01" required>
 
+                <p class="mensagem-conta" id="erro-transferencia" role="alert"></p>
+
                 <button type="submit">Transferir</button>
             </form>
         </section>
+
+
+        <!-- Notificação de transferência concluída -->
+        <div class="notificacao" id="notificacao-transferencia" role="status" hidden>
+            <div class="notificacao-texto">
+                <strong id="notificacao-titulo"></strong>
+                <span id="notificacao-mensagem"></span>
+                <span id="notificacao-saldo"></span>
+            </div>
+            <button type="button" class="notificacao-fechar" id="notificacao-fechar"
+                    aria-label="Fechar notificação">×</button>
+        </div>
+
+
+        <!-- Pop-up de confirmação -->
+        <div class="popup-fundo" id="popup-confirmar-transferencia" hidden>
+            <div class="popup" role="dialog" aria-modal="true" aria-labelledby="confirmar-titulo">
+                <h3 id="confirmar-titulo">Confirmar transferência</h3>
+                <p class="popup-valor" id="confirmar-valor"></p>
+                <p id="confirmar-destinatario"></p>
+                <p id="confirmar-saldo"></p>
+
+                <div class="popup-botoes">
+                    <button type="button" class="popup-fechar popup-cancelar" id="confirmar-cancelar">Cancelar</button>
+                    <button type="button" class="popup-fechar" id="confirmar-confirmar">Confirmar</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Menu inferior -->
         <nav class="barra-navegacao">
 
             <a href="inicio.html" class="botao-navegacao">
-                <i class="fa-solid fa-house icone-navegacao"></i>
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
                 <span>Início</span>
             </a>
 
             <a href="carteira.html" class="botao-navegacao ativo">
-                <i class="fa-solid fa-wallet icone-navegacao"></i>
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
                 <span>Carteira</span>
             </a>
 
             <a href="perfil.html" class="botao-navegacao">
-                <i class="fa-solid fa-user icone-navegacao"></i>
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
                 <span>Perfil</span>
             </a>
         </nav>
