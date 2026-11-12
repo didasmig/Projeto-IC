@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BANDy – Adicionar Festival</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap">
+
+</head>
+<body>
+
+<div class="ecra">
+
+  <header class="topo">
+    <a class="voltar" href="javascript:history.back()" aria-label="Voltar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <span class="logo">BANDy</span>
+    <span class="saldo" id="saldo">34,25€</span>
+  </header>
+
+  <main class="conteudo">
+    <h1>Adicionar festival</h1>
+
+    <button class="btn-bilhete" type="button" id="btn-bilhete">
+      Já tenho bilhete
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v3h18v-3a2 2 0 0 1 0-6V6H3z"/><path d="M14 6v12" stroke-dasharray="2 3"/></svg>
+    </button>
+
+    <h2>Próximos festivais</h2>
+
+    <label class="pesquisa">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input type="search" id="pesquisa" placeholder="Pesquisar festival" autocomplete="off">
+    </label>
+
+    <ul class="lista" id="lista">
+      <li>
+        <a class="festival" href="festival.html?id=meo-sudoeste" data-nome="MEO Sudoeste">
+          <div class="imagem" style="background:#4A36D6" aria-hidden="true">MS</div>
+          <div class="info">
+            <div class="nome">MEO Sudoeste</div>
+            <div class="datas">12–17 Agosto</div>
+          </div>
+          <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="festival" href="festival.html?id=sumol-summerfest" data-nome="Sumol Summerfest">
+          <div class="imagem" style="background:#C2410C" aria-hidden="true">SS</div>
+          <div class="info">
+            <div class="nome">Sumol Summerfest</div>
+            <div class="datas">21–23 Agosto</div>
+          </div>
+          <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="festival" href="festival.html?id=nos-alive" data-nome="NOS Alive">
+          <div class="imagem" style="background:#0F766E" aria-hidden="true">NA</div>
+          <div class="info">
+            <div class="nome">NOS Alive</div>
+            <div class="datas">28–31 Agosto</div>
+          </div>
+          <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p class="sem-resultados" id="sem-resultados">Nenhum festival encontrado. Tenta outro nome.</p>
+  </main>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="home.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+      Início
+    </a>
+    <a href="carteira.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg>
+      Carteira
+    </a>
+    <a href="perfil.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+      Perfil
+    </a>
+  </nav>
+
+</div>
+
+<script>
+  // Pesquisa: filtra a lista de festivais enquanto se escreve
+  const campo = document.getElementById('pesquisa');
+  const itens = document.querySelectorAll('#lista li');
+  const vazio = document.getElementById('sem-resultados');
+
+  const normalizar = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  campo.addEventListener('input', () => {
+    const termo = normalizar(campo.value.trim());
+    let visiveis = 0;
+    itens.forEach(li => {
+      const nome = normalizar(li.querySelector('.festival').dataset.nome);
+      const mostrar = nome.includes(termo);
+      li.style.display = mostrar ? '' : 'none';
+      if (mostrar) visiveis++;
+    });
+    vazio.style.display = visiveis ? 'none' : 'block';
+  });
+
+  // "Já tenho bilhete": ajusta o destino à tua página de bilhete
+  document.getElementById('btn-bilhete').addEventListener('click', () => {
+    window.location.href = 'adicionar_bilhete.html';
+  });
+</script>
+</body>
+</html>

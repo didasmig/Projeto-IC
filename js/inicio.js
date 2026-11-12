@@ -19,6 +19,7 @@ function adicionarFestival() {
         mostrarBloqueioBanDy();
         return;
     }
+    window.location.href = "adicionar_festival.html";
 
     const nome = prompt("Qual é o nome do festival?");
 
