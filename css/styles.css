@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #222;
+    color: #1a1a1a;
 }
 
 button {
@@ -19,7 +19,7 @@ button {
 .back-button {
     border: none;
     background: none;
-    color: #333;
+    color: #1f1f1f;
     font-size: 25px;
 }
 
@@ -36,7 +36,7 @@ button {
 /* Logótipo */
 
 .logo h1 {
-    color: #292929;
+    color: #1a1a1a;
     font-size: 30px;
 }
 
@@ -49,17 +49,13 @@ button {
 .featured-card {
     border: none;
     border-radius: 15px;
-    background: linear-gradient(135deg, #805ad5, #5533a5);
+    background: linear-gradient(135deg, #5b3cc4, #3b2394);
     box-shadow: 0 4px 10px rgb(0 0 0 / 12%);
     color: #fff;
     font-size: 23px;
     font-weight: bold;
-    transition: transform 0.2s ease;
 }
 
-.featured-card:hover {
-    transform: translateY(-3px);
-}
 
 /* Cartões dos festivais */
 
@@ -68,29 +64,20 @@ button {
     border-radius: 12px;
     background-color: #e9e2f7;
     box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
-    color: #392568;
+    color: #24134f;
     font-size: 17px;
     font-weight: bold;
     text-align: center;
-    transition: transform 0.2s ease,
-                background-color 0.2s ease;
 }
 
-.festival-card:hover {
-    transform: translateY(-3px);
-    background-color: #d9cef0;
-}
 
 /* Botão adicionar festival */
 
 .add-card {
-    background-color: #292929;
+    background-color: #1a1a1a;
     color: #fff;
 }
 
-.add-card:hover {
-    background-color: #444;
-}
 
 .card-symbol {
     font-size: 28px;
@@ -106,7 +93,7 @@ button {
 .nav-button {
     border: none;
     background: none;
-    color: #555;
+    color: #3c3c3c;
     font-size: 11px;
 }
 
@@ -115,7 +102,7 @@ button {
 }
 
 .nav-button.active {
-    color: #805ad5;
+    color: #5b3cc4;
 }
 
 /* Adaptação visual para ecrãs maiores */
@@ -139,7 +126,7 @@ button {
 }
 
 .botao-voltar {
-    color: #333;
+    color: #1f1f1f;
     font-size: 25px;
     text-decoration: none;
 }
@@ -168,7 +155,7 @@ button {
 }
 
 .valor-saldo {
-    color: #392568;
+    color: #24134f;
     font-size: 23px;
     font-weight: bold;
 }
@@ -176,7 +163,7 @@ button {
 .botao-ocultar-saldo {
     border: none;
     background: none;
-    color: #392568;
+    color: #24134f;
     font-size: 23px;
     cursor: pointer;
 }
@@ -184,18 +171,14 @@ button {
 /* Botões das operações */
 
 .botao-operacao {
-    border: 1px solid #aaa;
+    border: 1px solid #767676;
     border-radius: 5px;
     background-color: #e9e2f7;
-    color: #292929;
+    color: #1a1a1a;
     font-size: 15px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
-.botao-operacao:hover {
-    background-color: #d9cef0;
-}
 
 .icone-operacao {
     font-size: 18px;
@@ -204,7 +187,7 @@ button {
 /* Últimos movimentos */
 
 .secao-movimentos h2 {
-    color: #292929;
+    color: #1a1a1a;
     font-size: 17px;
     font-weight: bold;
 }
@@ -215,16 +198,16 @@ button {
 }
 
 .nome-movimento {
-    color: #333;
+    color: #1f1f1f;
 }
 
 .valor-negativo {
-    color: #a33b3b;
+    color: #b3261e;
     font-weight: bold;
 }
 
 .valor-positivo {
-    color: #27834a;
+    color: #1b6e3a;
     font-weight: bold;
 }
 
@@ -236,7 +219,7 @@ button {
 }
 
 .botao-navegacao {
-    color: #555;
+    color: #3c3c3c;
     font-size: 11px;
     text-decoration: none;
 }
@@ -246,7 +229,7 @@ button {
 }
 
 .botao-navegacao.ativo {
-    color: #805ad5;
+    color: #5b3cc4;
 }
 
 /* Ecrãs maiores */
@@ -276,32 +259,30 @@ button {
 
 .subtitulo-deposito {
     font-size: 15px;
-    color: #666;
+    color: #4a4a4a;
 }
 
 /* Botões de valores */
 
 .botao-valor {
-    border: 1px solid #aaa;
+    border: 1px solid #767676;
     border-radius: 5px;
     background-color: #e9e2f7;
-    color: #292929;
+    color: #1a1a1a;
     font-size: 17px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.botao-valor:hover,
 .botao-valor.selecionado {
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     color: #fff;
-    border-color: #805ad5;
+    border-color: #5b3cc4;
 }
 
 /* Campo personalizado */
 
 .campo-valor-personalizado {
-    border: 1px solid #aaa;
+    border: 1px solid #767676;
     border-radius: 5px;
     background-color: #fff;
 }
@@ -321,10 +302,10 @@ button {
 /* Dropdown */
 
 .campo-metodo-pagamento select {
-    border: 1px solid #aaa;
+    border: 1px solid #767676;
     border-radius: 5px;
     background-color: #e9e2f7;
-    color: #292929;
+    color: #1a1a1a;
     font-size: 15px;
     cursor: pointer;
 }
@@ -334,17 +315,13 @@ button {
 .botao-confirmar-deposito {
     border: none;
     border-radius: 8px;
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     color: white;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.botao-confirmar-deposito:hover {
-    background-color: #6341b5;
-}
 /* Botões de pagamento (QR e NFC) */
 
 .botao-pagamento {
@@ -382,7 +359,7 @@ button {
 /* Pop-up */
 
 .popup-fundo {
-    position: fixed;
+    position: absolute;
     inset: 0;
     z-index: 100;
     display: flex;
@@ -405,16 +382,16 @@ button {
 }
 
 .popup h3 {
-    color: #392568;
+    color: #24134f;
 }
 
 .popup p {
     margin-top: 8px;
-    color: #555;
+    color: #3c3c3c;
 }
 
 .popup .popup-valor {
-    color: #a33b3b;
+    color: #b3261e;
     font-size: 30px;
     font-weight: bold;
 }
@@ -424,21 +401,18 @@ button {
     padding: 10px 28px;
     border: none;
     border-radius: 8px;
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     color: #fff;
     font-weight: bold;
 }
 
-.popup-fechar:hover {
-    background-color: #6341b5;
-}
 
 /* =================================
    PÁGINA PERFIL - STYLES
 ================================= */
 
 .titulo-perfil {
-    color: #292929;
+    color: #1a1a1a;
     font-size: 20px;
     font-weight: bold;
 }
@@ -452,27 +426,27 @@ button {
 }
 
 .avatar-perfil {
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     border-radius: 50%;
     color: #fff;
     font-size: 35px;
 }
 
 .nome-perfil {
-    color: #392568;
+    color: #24134f;
     font-size: 20px;
     font-weight: bold;
 }
 
 .subtitulo-perfil {
-    color: #666;
+    color: #4a4a4a;
     font-size: 13px;
 }
 
 /* Informações pessoais */
 
 .secao-informacoes-perfil h3 {
-    color: #292929;
+    color: #1a1a1a;
     font-size: 17px;
 }
 
@@ -491,12 +465,12 @@ button {
 }
 
 .etiqueta-perfil {
-    color: #777;
+    color: #595959;
     font-size: 12px;
 }
 
 .valor-perfil {
-    color: #292929;
+    color: #1a1a1a;
     font-size: 15px;
     font-weight: bold;
 }
@@ -506,7 +480,7 @@ button {
 .botao-editar-perfil {
     border: none;
     border-radius: 8px;
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     color: #fff;
     font-size: 15px;
     font-weight: bold;
@@ -563,7 +537,7 @@ button {
 .modal-bandy-caixa h2 {
     margin: 5px 0 15px;
 
-    color: #392568;
+    color: #24134f;
     font-size: 21px;
 }
 
@@ -571,7 +545,7 @@ button {
 .modal-bandy-caixa p {
     margin-bottom: 18px;
 
-    color: #555;
+    color: #3c3c3c;
     font-size: 14px;
     line-height: 1.5;
 }
@@ -587,7 +561,7 @@ button {
     border: none;
     background: transparent;
 
-    color: #666;
+    color: #4a4a4a;
     font-size: 26px;
 }
 
@@ -595,7 +569,7 @@ button {
 .modal-bandy-icone {
     margin-bottom: 12px;
 
-    color: #805ad5;
+    color: #5b3cc4;
     font-size: 33px;
 }
 
@@ -615,13 +589,10 @@ button {
 }
 
 .modal-bandy-botao {
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     color: white;
 }
 
-.modal-bandy-botao:hover {
-    background-color: #6341b5;
-}
 
 .modal-bandy-botao:disabled {
     opacity: 0.6;
@@ -630,7 +601,7 @@ button {
 
 .modal-bandy-secundario {
     background-color: #eee9f7;
-    color: #392568;
+    color: #24134f;
 }
 
 /* Separadores Log-In e Registo */
@@ -650,11 +621,11 @@ button {
     border-radius: 8px;
 
     background-color: #eee9f7;
-    color: #392568;
+    color: #24134f;
 }
 
 .modal-bandy-separadores button.selecionado {
-    background-color: #805ad5;
+    background-color: #5b3cc4;
     color: #fff;
 }
 
@@ -670,7 +641,7 @@ button {
 .formulario-auth label {
     display: block;
 
-    color: #392568;
+    color: #24134f;
     font-size: 14px;
     font-weight: bold;
 }
@@ -682,18 +653,18 @@ button {
     margin-top: 5px;
     padding: 11px;
 
-    border: 1px solid #ccc;
+    border: 1px solid #767676;
     border-radius: 8px;
 
     background-color: white;
-    color: #222;
+    color: #1a1a1a;
     font-size: 15px;
 }
 
 /* Mensagens de erro */
 .formulario-auth .erro-auth {
     margin: 0;
-    color: #a33b3b;
+    color: #b3261e;
 }
 
 /* Botão de submissão */
@@ -704,14 +675,54 @@ button {
 /* Link para iniciar sessão no lugar do saldo */
 
 .link-iniciar-sessao {
-    color: #805ad5;
+    color: #5b3cc4;
     font-size: 13px;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
 }
 
-.link-iniciar-sessao:hover {
-    color: #6341b5;
-    text-decoration: underline;
+
+
+/* =================================
+   PÁGINA CONTA CONJUNTA
+================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+.titulo-conta-conjunta {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.texto-conta-conjunta {
+    margin-bottom: 8px;
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.titulares-conta {
+    margin-bottom: 20px;
+    color: #3c3c3c;
+    font-size: 14px;
+}
+
+.formulario-conta button {
+    font-size: 100%;
+}
+
+.formulario-conta .botao-secundario {
+    margin-top: 8px;
+    border: 1.5px solid #5b3cc4;
+    background: #fff;
+    color: #5b3cc4;
+}
+
+.mensagem-conta {
+    min-height: 18px;
+    color: #b3261e;
+    font-size: 13px;
 }

@@ -1,5 +1,11 @@
+// Compras possíveis (simulação)
 const compras = [
-    { destino: "Restaurante", valor: 50.00 }
+    { destino: "Água", valor: 1.50 },
+    { destino: "Bar", valor: 4.50 },
+    { destino: "Comida", valor: 8.50 },
+    { destino: "Restaurante", valor: 12.00 },
+    { destino: "Loja do festival", valor: 18.90 },
+    { destino: "Merchandising", valor: 25.00 }
 ];
 
 const popup = document.getElementById("popup-pagamento");
@@ -17,6 +23,12 @@ function formatarEuros(valor) {
 
 function simularPagamento(metodo) {
 
+    // É preciso ter sessão iniciada para pagar
+    if (!temSessao()) {
+        mostrarBloqueioBanDy();
+        return;
+    }
+
     // Escolher uma compra ao acaso
     const compra = compras[Math.floor(Math.random() * compras.length)];
     const saldo = obterSaldo();
@@ -32,7 +44,7 @@ function simularPagamento(metodo) {
     }
 
     // Atualizar saldo
-    const novoSaldo = saldo - compra.valor;
+    const novoSaldo = Math.round((saldo - compra.valor) * 100) / 100;
     atualizarSaldo(novoSaldo);
 
     
@@ -42,19 +54,6 @@ function simularPagamento(metodo) {
         destinatario: compra.destino,
         valor: compra.valor
     });
-
-
-    movimentos.unshift({
-        tipo: "pagamento",
-        destinatario: compra.destino,
-        valor: compra.valor,
-        data: new Date().toISOString()
-    });
-
-    localStorage.setItem(
-        "movimentosBanDy",
-        JSON.stringify(movimentos.slice(0, 10))
-    );
 
     // Mostrar pop-up
     popupTitulo.textContent = "Pagamento realizado";
@@ -72,6 +71,13 @@ document.querySelectorAll(".botao-pagamento").forEach((botao) => {
 
 document.getElementById("popup-fechar").addEventListener("click", () => {
     popup.hidden = true;
+});
+
+// Fechar com a tecla Escape
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        popup.hidden = true;
+    }
 });
 
 // Fechar ao clicar fora da caixa
