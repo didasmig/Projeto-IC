@@ -21,10 +21,13 @@
 /* Cabeçalho */
 
 .top-bar {
-    display: flex;
+    display: grid;
+    flex-shrink: 0;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
     height: 55px;
+    min-height: 55px;
     padding: 0 18px;
 }
 
@@ -144,10 +147,13 @@
 /* Cabeçalho */
 
 .barra-superior {
-    display: flex;
+    display: grid;
+    flex-shrink: 0;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
     height: 55px;
+    min-height: 55px;
     padding: 0 18px;
 }
 
@@ -463,3 +469,448 @@
     min-height: 48px;
 }
 
+
+
+/* =================================
+   PÁGINA ADICIONAR FESTIVAL - POSITIONS
+================================= */
+
+.conteudo-festivais {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+.titulo-festivais {
+    margin-bottom: 20px;
+}
+
+.secao-festivais {
+    margin-top: 25px;
+}
+
+.secao-festivais h2 {
+    margin-bottom: 12px;
+}
+
+/* Pesquisa */
+
+.campo-pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0 12px;
+}
+
+.campo-pesquisa input {
+    width: 100%;
+    min-height: 45px;
+    padding: 10px 0;
+}
+
+/* Lista de festivais */
+
+.lista-festivais {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartao-festival {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 12px 15px;
+}
+
+.cartao-festival[hidden] {
+    display: none;
+}
+
+.iniciais-festival {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+}
+
+.informacao-festival {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.sem-resultados {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* =================================
+   PÁGINA ADICIONAR BILHETE - POSITIONS
+================================= */
+
+.conteudo-bilhete {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+.titulo-bilhete {
+    margin-bottom: 5px;
+}
+
+.subtitulo-bilhete {
+    margin-bottom: 20px;
+}
+
+/* Separadores */
+
+.separadores-bilhete {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.separadores-bilhete button {
+    flex: 1;
+    min-height: 44px;
+    padding: 11px;
+}
+
+/* Formulário */
+
+.formulario-bilhete {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formulario-bilhete label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.formulario-bilhete input[type="text"] {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+}
+
+/* Leitor de QR */
+
+.leitor-qr {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.leitor-qr video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leitor-qr-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.moldura-qr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.botao-secundario-bilhete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+}
+
+/* Confirmar */
+
+.botao-confirmar-bilhete {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 6px;
+}
+
+
+/* =================================
+   PÁGINA DO FESTIVAL - POSITIONS
+================================= */
+
+.conteudo-festival {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+.titulo-festival {
+    margin-bottom: 15px;
+}
+
+.cartaz-festival {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin-bottom: 18px;
+    padding: 15px;
+}
+
+.detalhes-festival {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+    list-style: none;
+}
+
+.detalhes-festival li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.detalhes-festival i {
+    width: 20px;
+    text-align: center;
+}
+
+.mapa-festival {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.mapa-festival iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.ligacao-mapa {
+    display: block;
+    margin: 8px 0 22px;
+    text-align: center;
+}
+
+.botao-comprar-bilhete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 10px;
+}
+
+/* =================================
+   PÁGINA COMPRAR BILHETE - POSITIONS
+================================= */
+
+.conteudo-compra {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+.formulario-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.etiqueta-compra {
+    margin-top: 8px;
+}
+
+.opcoes-bilhete {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opcao-bilhete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 58px;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+.opcao-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.quantidade-bilhete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}
+
+.quantidade-bilhete button {
+    width: 44px;
+    height: 44px;
+}
+
+.quantidade-bilhete span {
+    min-width: 30px;
+    text-align: center;
+}
+
+
+/* =================================
+   ESCOLHA DO DIA DO BILHETE - POSITIONS
+================================= */
+
+.seccao-dia {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dias-bilhete {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.botao-dia {
+    width: 100%;
+    min-height: 45px;
+    padding: 8px;
+}
+
+
+/* =================================
+   FESTIVAIS COM BILHETE (INÍCIO) - POSITIONS
+================================= */
+
+.featured-card {
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* =================================
+   REMOVER FESTIVAL - POSITIONS
+================================= */
+
+.info-bilhetes {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.botao-remover-festival {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+/* =================================
+   BILHETES DO FESTIVAL - POSITIONS
+================================= */
+
+.bilhetes-festival {
+    margin-top: 5px;
+}
+
+.bilhetes-festival h2 {
+    margin-bottom: 12px;
+}
+
+.lista-bilhetes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartao-bilhete {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+}
+
+.qr-bilhete {
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+}
+
+.texto-bilhete {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+
+/* =================================
+   CABEÇALHO IGUAL EM TODOS OS ECRÃS
+   (3 colunas: voltar | título centrado | saldo)
+================================= */
+
+.top-bar > :first-child,
+.barra-superior > :first-child {
+    justify-self: start;
+}
+
+.top-bar > :last-child,
+.barra-superior > :last-child {
+    justify-self: end;
+}
+
+.botao-voltar,
+.back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+}
+
+
+/* =================================
+   PAGAMENTO COM CONTA CONJUNTA - POSITIONS
+================================= */
+
+.subtitulo-pagamento {
+    margin-top: -18px;
+    margin-bottom: 22px;
+    text-align: center;
+}

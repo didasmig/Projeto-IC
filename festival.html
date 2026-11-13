@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BanDy - Festival</title>
+
+    <!-- Ficheiros CSS -->
+    <link rel="stylesheet" href="css/positions.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JavaScript -->
+    <script src="js/autenticacao.js" defer></script>
+    <script src="js/saldo.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" defer></script>
+    <script src="js/festivais.js" defer></script>
+    <script src="js/festival.js" defer></script>
+
+    <!-- Script para ícones -->
+    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <main class="aplicacao">
+
+        <!-- Cabeçalho -->
+        <header class="barra-superior">
+
+            <a href="adicionar_festival.html" class="botao-voltar">
+                ←
+            </a>
+
+            <span class="titulo-cabecalho">
+                BanDy
+            </span>
+
+            <span class="saldo-cabecalho" data-saldo>
+                0,00 €
+            </span>
+
+        </header>
+
+
+        <!-- Informações do festival -->
+        <section class="conteudo-festival" id="conteudo-festival" hidden>
+
+            <h1 class="titulo-festival" id="festival-nome"></h1>
+
+            <!-- Cartaz -->
+            <div class="cartaz-festival" id="festival-cartaz" role="img">
+                <span class="cartaz-iniciais" id="festival-iniciais"></span>
+                <span class="cartaz-nome" id="festival-cartaz-nome"></span>
+            </div>
+
+            <!-- Data e local -->
+            <ul class="detalhes-festival">
+                <li>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span id="festival-datas"></span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span id="festival-local"></span>
+                </li>
+            </ul>
+
+            <!-- Mapa -->
+            <div class="mapa-festival">
+                <iframe id="festival-mapa"
+                        title="Mapa do festival"
+                        loading="lazy"
+                        referrerpolicy="no-referrer"></iframe>
+            </div>
+
+            <a class="ligacao-mapa" id="festival-mapa-ligacao"
+               target="_blank" rel="noopener">
+                Abrir mapa completo
+            </a>
+
+            <!-- Os teus bilhetes (só aparece se já compraste) -->
+            <section class="bilhetes-festival" id="bilhetes-festival" hidden>
+                <h2>Os teus bilhetes</h2>
+                <div class="lista-bilhetes" id="lista-bilhetes"></div>
+            </section>
+
+            <!-- Comprar bilhete (escondido se já tens bilhete) -->
+            <a class="botao-comprar-bilhete" id="botao-comprar-bilhete" href="comprar_bilhete.html">
+                Comprar Bilhete
+            </a>
+
+            <!-- Só aparece se já tiveres bilhete deste festival -->
+            <p class="info-bilhetes" id="info-bilhetes" hidden></p>
+
+            <button type="button" class="botao-remover-festival" id="botao-remover-festival" hidden>
+                <i class="fa-solid fa-trash"></i> Remover festival
+            </button>
+
+        </section>
+
+
+        <!-- Festival não encontrado -->
+        <section class="conteudo-festival" id="festival-inexistente" hidden>
+
+            <h1 class="titulo-festival">Festival não encontrado</h1>
+
+            <p class="subtitulo-bilhete">
+                Não foi possível encontrar este festival.
+            </p>
+
+            <a class="botao-comprar-bilhete" href="adicionar_festival.html">
+                Ver festivais
+            </a>
+
+        </section>
+
+
+        <!-- Pop-up de confirmação -->
+        <div class="popup-fundo" id="popup-remover-festival" hidden>
+            <div class="popup" role="dialog" aria-modal="true" aria-labelledby="remover-titulo">
+                <h3 id="remover-titulo">Remover festival</h3>
+                <p id="remover-texto"></p>
+
+                <div class="popup-botoes">
+                    <button type="button" class="popup-fechar popup-cancelar" id="remover-cancelar">Cancelar</button>
+                    <button type="button" class="popup-fechar popup-perigo" id="remover-confirmar">Remover</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Menu de navegação inferior -->
+        <nav class="barra-navegacao">
+
+            <a href="inicio.html" class="botao-navegacao ativo">
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span>Início</span>
+            </a>
+
+            <a href="carteira.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+                <span>Carteira</span>
+            </a>
+
+            <a href="perfil.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+</body>
+</html>

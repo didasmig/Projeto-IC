@@ -14,6 +14,7 @@
 
     <script src="js/autenticacao.js" defer></script>
     <script src="js/saldo.js" defer></script>
+    <script src="js/conta_conjunta.js" defer></script>
     <script src="js/pagamento.js" defer></script>
 
     <!-- Script para ícones -->
@@ -25,14 +26,15 @@
 
         <!-- Cabeçalho -->
         <header class="barra-superior">
-            <a href="carteira.html" class="botao-voltar">←</a>
+            <a href="carteira.html" class="botao-voltar" id="botao-voltar-pagamento">←</a>
             <span class="titulo-cabecalho">BanDy</span>
-            <span class="saldo-cabecalho" data-saldo>34,29 €</span>
+            <span class="saldo-cabecalho" data-saldo>0,00 €</span>
         </header>
 
         <section class="conteudo-pagamento">
             <div>
                 <h2 class="titulo-Pagamento">Pagamento</h2>
+                <p class="subtitulo-pagamento" id="subtitulo-pagamento" hidden></p>
             </div>
 
             <div class="QR-code">
@@ -52,7 +54,7 @@
 
         <!-- Pop-up de pagamento -->
         <div class="popup-fundo" id="popup-pagamento" hidden>
-            <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-titulo">
+            <div class="popup popup-negativo" role="dialog" aria-modal="true" aria-labelledby="popup-titulo">
                 <h3 id="popup-titulo"></h3>
                 <p class="popup-valor" id="popup-valor"></p>
                 <p id="popup-destino"></p>

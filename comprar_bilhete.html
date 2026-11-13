@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BanDy - Comprar Bilhete</title>
+
+    <!-- Ficheiros CSS -->
+    <link rel="stylesheet" href="css/positions.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JavaScript -->
+    <script src="js/autenticacao.js" defer></script>
+    <script src="js/saldo.js" defer></script>
+    <script src="js/festivais.js" defer></script>
+    <script src="js/comprar_bilhete.js" defer></script>
+
+    <!-- Script para ícones -->
+    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <main class="aplicacao">
+
+        <!-- Cabeçalho -->
+        <header class="barra-superior">
+
+            <a href="adicionar_festival.html" class="botao-voltar" id="botao-voltar-festival">
+                ←
+            </a>
+
+            <span class="titulo-cabecalho">
+                BanDy
+            </span>
+
+            <span class="saldo-cabecalho" data-saldo>
+                0,00 €
+            </span>
+
+        </header>
+
+
+        <!-- Compra -->
+        <section class="conteudo-compra" id="conteudo-compra" hidden>
+
+            <h1 class="titulo-bilhete">Comprar bilhete</h1>
+            <p class="subtitulo-bilhete" id="compra-festival"></p>
+
+            <form id="formulario-compra" class="formulario-compra" novalidate>
+
+                <span class="etiqueta-compra">Tipo de bilhete</span>
+                <div class="opcoes-bilhete" id="opcoes-bilhete"></div>
+
+                <!-- Dia do bilhete diário -->
+                <div class="seccao-dia" id="seccao-dia" hidden>
+                    <span class="etiqueta-compra">Dia do bilhete</span>
+                    <div class="dias-bilhete" id="dias-bilhete"></div>
+                    <small class="nota-dia">Todos os bilhetes desta compra são para o mesmo dia.</small>
+                </div>
+
+                <span class="etiqueta-compra">Quantidade</span>
+                <div class="quantidade-bilhete">
+                    <button type="button" id="quantidade-menos" aria-label="Menos um bilhete">−</button>
+                    <span id="quantidade-valor" aria-live="polite">1</span>
+                    <button type="button" id="quantidade-mais" aria-label="Mais um bilhete">+</button>
+                </div>
+
+                <div class="resumo-deposito">
+                    <span>Total</span>
+                    <strong id="compra-total">0,00 €</strong>
+                </div>
+
+                <p class="mensagem-conta" id="mensagem-compra" role="alert"></p>
+
+                <button type="submit" class="botao-confirmar-bilhete">Comprar</button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Festival não encontrado -->
+        <section class="conteudo-compra" id="compra-inexistente" hidden>
+
+            <h1 class="titulo-bilhete">Festival não encontrado</h1>
+
+            <p class="subtitulo-bilhete">
+                Escolhe primeiro um festival para comprar o bilhete.
+            </p>
+
+            <a class="botao-comprar-bilhete" href="adicionar_festival.html">
+                Ver festivais
+            </a>
+
+        </section>
+
+
+        <!-- Notificação de compra concluída -->
+        <div class="notificacao" id="notificacao-compra" role="status" hidden>
+            <div class="notificacao-texto">
+                <strong>Compra concluída</strong>
+                <span id="notificacao-compra-mensagem"></span>
+                <span id="notificacao-compra-saldo"></span>
+            </div>
+            <button type="button" class="notificacao-fechar" id="notificacao-compra-fechar"
+                    aria-label="Fechar notificação">×</button>
+        </div>
+
+
+        <!-- Pop-up de confirmação -->
+        <div class="popup-fundo" id="popup-confirmar-compra" hidden>
+            <div class="popup popup-negativo" role="dialog" aria-modal="true" aria-labelledby="compra-titulo">
+                <h3 id="compra-titulo">Confirmar compra</h3>
+                <p class="popup-valor" id="confirmar-compra-valor"></p>
+                <p id="confirmar-compra-descricao"></p>
+                <p id="confirmar-compra-saldo"></p>
+
+                <div class="popup-botoes">
+                    <button type="button" class="popup-fechar popup-cancelar" id="confirmar-compra-cancelar">Cancelar</button>
+                    <button type="button" class="popup-fechar" id="confirmar-compra-confirmar">Confirmar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Menu de navegação inferior -->
+        <nav class="barra-navegacao">
+
+            <a href="inicio.html" class="botao-navegacao ativo">
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span>Início</span>
+            </a>
+
+            <a href="carteira.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+                <span>Carteira</span>
+            </a>
+
+            <a href="perfil.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+</body>
+</html>

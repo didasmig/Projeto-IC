@@ -14,7 +14,9 @@ const PAGINAS_PROTEGIDAS = [
     "metodo_pagamento.html",
     "transferir.html",
     "pagamento.html",
-    "conta_conjunta.html"
+    "conta_conjunta.html",
+    "adicionar_bilhete.html",
+    "comprar_bilhete.html"
 ];
 
 // Obter todas as contas registadas

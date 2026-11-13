@@ -149,6 +149,17 @@ function mostrarMovimentos() {
             valorMovimento.textContent =
                 "- " + valorFormatado + " €";
 
+        // Compra de bilhete
+        } else if (movimento.tipo === "bilhete") {
+
+            nomeMovimento.textContent =
+                "Bilhete - " + movimento.destinatario;
+
+            valorMovimento.classList.add("valor-negativo");
+
+            valorMovimento.textContent =
+                "- " + valorFormatado + " €";
+
         } else {
             return;
         }

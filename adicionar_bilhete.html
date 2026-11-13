@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BanDy - Adicionar Bilhete</title>
+
+    <!-- Ficheiros CSS -->
+    <link rel="stylesheet" href="css/positions.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JavaScript -->
+    <script src="js/autenticacao.js" defer></script>
+    <script src="js/saldo.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js" defer></script>
+    <script src="js/adicionar_bilhete.js" defer></script>
+
+    <!-- Script para ícones -->
+    <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <main class="aplicacao">
+
+        <!-- Cabeçalho -->
+        <header class="barra-superior">
+
+            <a href="adicionar_festival.html" class="botao-voltar">
+                ←
+            </a>
+
+            <span class="titulo-cabecalho">
+                BanDy
+            </span>
+
+            <span class="saldo-cabecalho" data-saldo>
+                0,00 €
+            </span>
+
+        </header>
+
+
+        <!-- Conteúdo principal -->
+        <section class="conteudo-bilhete">
+
+            <h1 class="titulo-bilhete">Adicionar bilhete</h1>
+            <p class="subtitulo-bilhete">
+                Escreve o código do teu bilhete ou lê o código QR.
+            </p>
+
+            <!-- Separadores -->
+            <div class="separadores-bilhete" role="tablist">
+                <button type="button" class="selecionado" role="tab"
+                        aria-selected="true" data-separador="codigo">
+                    <i class="fa-solid fa-keyboard"></i> Código
+                </button>
+                <button type="button" role="tab"
+                        aria-selected="false" data-separador="qr">
+                    <i class="fa-solid fa-qrcode"></i> Ler QR
+                </button>
+            </div>
+
+            <form id="formulario-bilhete" class="formulario-bilhete" novalidate>
+
+                <!-- Código escrito -->
+                <div id="painel-codigo">
+                    <label for="codigo-bilhete">Código do bilhete</label>
+                    <input type="text"
+                           id="codigo-bilhete"
+                           placeholder="Ex.: MS2026AB12"
+                           autocomplete="off"
+                           autocapitalize="characters"
+                           spellcheck="false"
+                           maxlength="64">
+                </div>
+
+                <!-- Leitor de QR -->
+                <div id="painel-qr" hidden>
+
+                    <div class="leitor-qr">
+                        <video id="video-qr" playsinline muted hidden></video>
+                        <div class="leitor-qr-vazio" id="leitor-qr-vazio">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>A câmara está desligada</span>
+                        </div>
+                        <span class="moldura-qr" id="moldura-qr" hidden></span>
+                    </div>
+
+                    <button type="button" class="botao-secundario-bilhete" id="botao-camara">
+                        <i class="fa-solid fa-camera"></i> Ligar câmara
+                    </button>
+
+                    <button type="button" class="botao-secundario-bilhete" id="botao-imagem">
+                        <i class="fa-solid fa-image"></i> Carregar imagem do QR
+                    </button>
+
+                    <input type="file" id="ficheiro-qr" accept="image/*" hidden>
+
+                </div>
+
+                <p class="mensagem-conta" id="mensagem-bilhete" role="alert"></p>
+
+                <button type="submit" class="botao-confirmar-bilhete" id="botao-confirmar-bilhete" disabled>
+                    Confirmar
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Notificação de bilhete adicionado -->
+        <div class="notificacao" id="notificacao-bilhete" role="status" hidden>
+            <div class="notificacao-texto">
+                <strong>Bilhete adicionado com sucesso</strong>
+                <span id="notificacao-bilhete-mensagem"></span>
+            </div>
+            <button type="button" class="notificacao-fechar" id="notificacao-bilhete-fechar"
+                    aria-label="Fechar notificação">×</button>
+        </div>
+
+
+        <!-- Menu de navegação inferior -->
+        <nav class="barra-navegacao">
+
+            <a href="inicio.html" class="botao-navegacao ativo">
+                <span class="icone-navegacao"><i class="fa-solid fa-house"></i></span>
+                <span>Início</span>
+            </a>
+
+            <a href="carteira.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-wallet"></i></span>
+                <span>Carteira</span>
+            </a>
+
+            <a href="perfil.html" class="botao-navegacao">
+                <span class="icone-navegacao"><i class="fa-solid fa-user"></i></span>
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+</body>
+</html>

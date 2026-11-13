@@ -877,3 +877,482 @@ a.popup-fechar {
     font-size: 22px;
     line-height: 1;
 }
+
+
+/* =================================
+   PÁGINA ADICIONAR FESTIVAL
+================================= */
+
+.titulo-festivais {
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.secao-festivais h2 {
+    color: #1a1a1a;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Pesquisa */
+
+.campo-pesquisa {
+    border: 1px solid #767676;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #4a4a4a;
+}
+
+.campo-pesquisa input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+.campo-pesquisa:focus-within {
+    border-color: #5b3cc4;
+}
+
+/* Cartões dos festivais */
+
+.cartao-festival {
+    border-radius: 12px;
+    background-color: #e9e2f7;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+    color: #24134f;
+    text-decoration: none;
+    transition: transform 0.15s;
+}
+
+.cartao-festival:active {
+    transform: scale(0.98);
+}
+
+.iniciais-festival {
+    border-radius: 12px;
+    background-color: #5b3cc4;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.nome-festival {
+    color: #24134f;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.datas-festival {
+    color: #4a4a4a;
+    font-size: 13px;
+}
+
+.seta-festival {
+    color: #5b3cc4;
+    font-size: 16px;
+}
+
+.sem-resultados {
+    color: #4a4a4a;
+    font-size: 14px;
+}
+
+
+/* =================================
+   PÁGINA ADICIONAR BILHETE
+================================= */
+
+.titulo-bilhete {
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subtitulo-bilhete {
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Separadores */
+
+.separadores-bilhete button {
+    border: none;
+    border-radius: 8px;
+    background-color: #eee9f7;
+    color: #24134f;
+    font-size: 15px;
+}
+
+.separadores-bilhete button.selecionado {
+    background-color: #5b3cc4;
+    color: #fff;
+}
+
+/* Campo do código */
+
+.formulario-bilhete label {
+    color: #24134f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.formulario-bilhete input[type="text"] {
+    border: 1px solid #767676;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #1a1a1a;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.formulario-bilhete input[type="text"]::placeholder {
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.formulario-bilhete input[type="text"]:focus {
+    border-color: #5b3cc4;
+    outline: none;
+}
+
+/* Leitor de QR */
+
+.leitor-qr {
+    border-radius: 12px;
+    background-color: #e9e2f7;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+    color: #24134f;
+    font-size: 14px;
+}
+
+.leitor-qr-vazio i {
+    color: #5b3cc4;
+    font-size: 36px;
+}
+
+.moldura-qr {
+    border: 3px solid #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 999px rgb(0 0 0 / 35%);
+}
+
+.botao-secundario-bilhete {
+    border: 1.5px solid #5b3cc4;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #5b3cc4;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Confirmar */
+
+.botao-confirmar-bilhete {
+    border: none;
+    border-radius: 8px;
+    background-color: #5b3cc4;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.botao-confirmar-bilhete:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* =================================
+   PÁGINA DO FESTIVAL
+================================= */
+
+.titulo-festival {
+    color: #1a1a1a;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Cartaz (substitui por uma imagem, se tiveres) */
+
+.cartaz-festival {
+    border-radius: 15px;
+    background: linear-gradient(135deg, #5b3cc4, #3b2394);
+    box-shadow: 0 4px 10px rgb(0 0 0 / 12%);
+    color: #fff;
+    text-align: center;
+}
+
+.cartaz-iniciais {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.cartaz-nome {
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+.detalhes-festival li {
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+.detalhes-festival i {
+    color: #5b3cc4;
+    font-size: 18px;
+}
+
+.mapa-festival {
+    border-radius: 12px;
+    background-color: #e9e2f7;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+}
+
+.mapa-festival iframe {
+    border: none;
+}
+
+.ligacao-mapa {
+    color: #5b3cc4;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.botao-comprar-bilhete {
+    border-radius: 8px;
+    background-color: #5b3cc4;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =================================
+   PÁGINA COMPRAR BILHETE
+================================= */
+
+.etiqueta-compra {
+    color: #24134f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.opcao-bilhete {
+    border: 1px solid #767676;
+    border-radius: 12px;
+    background-color: #e9e2f7;
+    color: #24134f;
+}
+
+.opcao-bilhete strong {
+    font-size: 16px;
+}
+
+.opcao-bilhete small {
+    color: #4a4a4a;
+    font-size: 13px;
+}
+
+.opcao-preco {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.opcao-bilhete.selecionado {
+    border-color: #5b3cc4;
+    background-color: #5b3cc4;
+    color: #fff;
+}
+
+.opcao-bilhete.selecionado small {
+    color: #e9e2f7;
+}
+
+.quantidade-bilhete button {
+    border: 1px solid #767676;
+    border-radius: 50%;
+    background-color: #e9e2f7;
+    color: #24134f;
+    font-size: 22px;
+}
+
+.quantidade-bilhete span {
+    color: #1a1a1a;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* =================================
+   ESCOLHA DO DIA DO BILHETE
+================================= */
+
+.botao-dia {
+    border: 1px solid #767676;
+    border-radius: 5px;
+    background-color: #e9e2f7;
+    color: #1a1a1a;
+    font-size: 15px;
+}
+
+.botao-dia.selecionado {
+    border-color: #5b3cc4;
+    background-color: #5b3cc4;
+    color: #fff;
+}
+
+.nota-dia {
+    color: #4a4a4a;
+    font-size: 12px;
+}
+
+
+/* =================================
+   FESTIVAIS COM BILHETE (INÍCIO)
+================================= */
+
+.featured-card small {
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.festival-card small {
+    color: #4a4a4a;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+
+/* =================================
+   REMOVER FESTIVAL
+================================= */
+
+.info-bilhetes {
+    color: #1b6e3a;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.botao-remover-festival {
+    border: 1.5px solid #b3261e;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #b3261e;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.popup .popup-perigo {
+    background-color: #b3261e;
+}
+
+
+/* =================================
+   BILHETES DO FESTIVAL
+================================= */
+
+.bilhetes-festival h2 {
+    color: #1a1a1a;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.cartao-bilhete {
+    border-radius: 12px;
+    background-color: #e9e2f7;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 8%);
+    color: #24134f;
+}
+
+.qr-bilhete {
+    border-radius: 8px;
+    background-color: #fff;
+    image-rendering: pixelated;
+}
+
+.texto-bilhete strong {
+    font-size: 16px;
+}
+
+.texto-bilhete span {
+    color: #3c3c3c;
+    font-size: 14px;
+}
+
+.texto-bilhete small {
+    color: #4a4a4a;
+    font-size: 12px;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+
+
+/* =================================
+   COR DOS POP-UPS
+   verde: aumenta o saldo  |  vermelho: reduz o saldo
+================================= */
+
+/* Verde (depósitos) */
+
+.popup.popup-positivo {
+    border-top: 6px solid #1b6e3a;
+}
+
+.popup-positivo h3,
+.popup-positivo .popup-valor {
+    color: #1b6e3a;
+}
+
+.popup-positivo .popup-fechar {
+    background-color: #1b6e3a;
+}
+
+.popup-positivo .popup-fechar:focus-visible {
+    outline: 2px solid #1b6e3a;
+    outline-offset: 2px;
+}
+
+/* Vermelho (pagamentos, transferências e compras) */
+
+.popup.popup-negativo {
+    border-top: 6px solid #b3261e;
+}
+
+.popup-negativo h3,
+.popup-negativo .popup-valor {
+    color: #b3261e;
+}
+
+.popup-negativo .popup-fechar {
+    background-color: #b3261e;
+}
+
+.popup-negativo .popup-cancelar {
+    border: 1.5px solid #b3261e;
+    background-color: #fff;
+    color: #b3261e;
+}
+
+.popup-negativo .popup-fechar:focus-visible {
+    outline: 2px solid #b3261e;
+    outline-offset: 2px;
+}
+
+
+/* =================================
+   PAGAMENTO COM CONTA CONJUNTA
+================================= */
+
+.subtitulo-pagamento {
+    color: #4a4a4a;
+    font-size: 14px;
+    font-weight: bold;
+}

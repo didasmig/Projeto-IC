@@ -13,6 +13,7 @@
 
     <script src="js/autenticacao.js" defer></script>
     <script src="js/saldo.js" defer></script>
+    <script src="js/festivais.js" defer></script>
     <script src="js/inicio.js" defer></script>
 
     <script src="https://kit.fontawesome.com/81afda5663.js" crossorigin="anonymous"></script>
@@ -30,7 +31,7 @@
             </span>
 
             <span class="saldo-cabecalho" data-saldo>
-                34,29 €
+                0,00 €
             </span>
         </header>
 
@@ -41,7 +42,7 @@
 
         <!-- Festival em destaque -->
         <section class="featured-section">
-            <button class="featured-card" data-festival="Festival Atual">
+            <button class="featured-card" id="festival-atual" data-festival="Festival Atual">
                 Festival Atual
             </button>
         </section>
@@ -54,16 +55,8 @@
                 <span>Adicionar Festival</span>
             </button>
 
-            <button class="festival-card" data-festival="Festival Futuro">
+            <button class="festival-card" id="festival-futuro" data-festival="Festival Futuro">
                 Festival Futuro
-            </button>
-
-            <button class="festival-card" data-festival="Festival Passado">
-                Festival Passado
-            </button>
-
-            <button class="festival-card" data-festival="Outros Festivais">
-                Outros Festivais
             </button>
 
         </section>

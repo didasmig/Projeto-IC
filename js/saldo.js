@@ -1,7 +1,7 @@
 
 // SALDO E MOVIMENTOS DE CADA CONTA
 
-const SALDO_INICIAL = 34.29;
+const SALDO_INICIAL = 0;
 
 // Obter saldo da conta
 function obterSaldo() {

@@ -601,6 +601,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 abrirFormularioMembro();
             } else if (botao.dataset.conjunta === "eliminar") {
                 abrirFormularioEliminar();
+            } else if (botao.dataset.conjunta === "pagar") {
+                // Mesmo pagamento da conta principal (QR Code / NFC)
+                window.location.href = "pagamento.html?conta=conjunta";
             } else {
                 abrirFormularioMovimento(botao.dataset.conjunta);
             }
