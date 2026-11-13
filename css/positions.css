@@ -463,3 +463,24 @@
     min-height: 48px;
 }
 
+
+/* =================================
+   TEMA PRETO E DOURADO - POSITIONS
+================================= */
+
+.app,
+.aplicacao {
+    background-color: #faf9f5;
+}
+
+/* Botão de transferência */
+
+.formulario-transferencia button {
+    background: #252525;
+    color: #fff;
+}
+
+.formulario-transferencia button:hover {
+    background: #404040;
+}
+

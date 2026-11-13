@@ -877,3 +877,196 @@ a.popup-fechar {
     font-size: 22px;
     line-height: 1;
 }
+
+
+
+/* =================================
+   TEMA PRETO E DOURADO - BANDY
+================================= */
+
+/* Cores gerais */
+
+body {
+    background-color: #faf9f5;
+    color: #252525;
+}
+
+/* Festival em destaque */
+
+.featured-card {
+    background: linear-gradient(135deg, #252525, #404040);
+    color: #f8d76a;
+}
+
+/* Cartões dos festivais */
+
+.festival-card {
+    background-color: #fff3c9;
+    color: #252525;
+}
+
+.festival-card:hover {
+    background-color: #f5e3a5;
+}
+
+/* Botão adicionar festival */
+
+.add-card {
+    background-color: #252525;
+    color: #f8d76a;
+}
+
+.add-card:hover {
+    background-color: #404040;
+}
+
+/* Navegação inferior */
+
+.nav-button.active,
+.botao-navegacao.ativo {
+    color: #795600;
+}
+
+/* Cartão do saldo */
+
+.cartao-saldo {
+    background-color: #fff3c9;
+}
+
+.valor-saldo,
+.botao-ocultar-saldo {
+    color: #252525;
+}
+
+/* Operações da carteira */
+
+.botao-operacao {
+    background-color: #fff3c9;
+    color: #252525;
+}
+
+.botao-operacao:hover {
+    background-color: #f5e3a5;
+}
+
+/* Botões de depósito */
+
+.botao-valor {
+    background-color: #fff3c9;
+    color: #252525;
+}
+
+.botao-valor.selecionado {
+    background-color: #f2c94c;
+    border-color: #a67c00;
+    color: #252525;
+}
+
+/* Método de pagamento */
+
+.campo-metodo-pagamento select {
+    background-color: #fff3c9;
+    color: #252525;
+}
+
+/* Botões principais */
+
+.botao-confirmar-deposito,
+.formulario-transferencia button,
+.popup-fechar,
+.botao-editar-perfil,
+.modal-bandy-botao {
+    background-color: #252525;
+    color: #fff;
+}
+
+.botao-confirmar-deposito:hover,
+.formulario-transferencia button:hover,
+.popup-fechar:hover,
+.botao-editar-perfil:hover,
+.modal-bandy-botao:hover {
+    background-color: #404040;
+}
+
+/* Perfil */
+
+.cartao-perfil {
+    background-color: #fff3c9;
+}
+
+.avatar-perfil {
+    background-color: #252525;
+    color: #f8d76a;
+}
+
+.nome-perfil {
+    color: #252525;
+}
+
+/* Pop-ups */
+
+.popup h3,
+.modal-bandy-caixa h2 {
+    color: #252525;
+}
+
+.modal-bandy-icone {
+    color: #795600;
+}
+
+.modal-bandy-secundario,
+.modal-bandy-separadores button {
+    background-color: #fff3c9;
+    color: #252525;
+}
+
+.modal-bandy-separadores button.selecionado {
+    background-color: #f2c94c;
+    color: #252525;
+}
+
+.formulario-auth label {
+    color: #252525;
+}
+
+/* Link iniciar sessão */
+
+.link-iniciar-sessao {
+    color: #795600;
+}
+
+.link-iniciar-sessao:hover {
+    color: #554000;
+}
+
+/* Conta conjunta */
+
+.formulario-conta .botao-secundario {
+    color: #795600;
+}
+
+/* Método de pagamento */
+
+.resumo-deposito {
+    background-color: #fff3c9;
+    color: #252525;
+}
+
+.ligacao-botao,
+.popup .popup-cancelar {
+    color: #795600;
+}
+
+/* Movimentos financeiros */
+
+.valor-positivo,
+.mensagem-conta.sucesso {
+    color: #17643a;
+}
+
+.valor-negativo,
+.popup .popup-valor,
+.formulario-auth .erro-auth {
+    color: #b3261e;
+}
+
