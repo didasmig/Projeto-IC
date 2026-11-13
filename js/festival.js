@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
    se já tens bilhete, vês o bilhete em vez do botão de compra
 ================================= */
 
-// Criar a imagem do código QR (se a biblioteca estiver carregada)
-function criarImagemQr(texto) {
+// Gerar o endereço da imagem do QR (tamanho = pixéis por módulo)
+function gerarQrUrl(texto, tamanho, margem) {
 
     if (typeof qrcode !== "function") {
         return null;
@@ -65,9 +65,25 @@ function criarImagemQr(texto) {
         const qr = qrcode(0, "M");
         qr.addData(texto);
         qr.make();
+        return qr.createDataURL(tamanho, margem);
 
+    } catch (erro) {
+        return null;
+    }
+}
+
+// Criar a imagem do código QR (se a biblioteca estiver carregada)
+function criarImagemQr(texto) {
+
+    const endereco = gerarQrUrl(texto, 4, 2);
+
+    if (!endereco) {
+        return null;
+    }
+
+    try {
         const imagem = document.createElement("img");
-        imagem.src = qr.createDataURL(4, 2);
+        imagem.src = endereco;
         imagem.alt = "Código QR do bilhete " + texto;
         imagem.classList.add("qr-bilhete");
 
@@ -78,6 +94,51 @@ function criarImagemQr(texto) {
     }
 }
 
+/* =================================
+   ZOOM DO QR
+================================= */
+
+function fecharZoomQr() {
+    document.getElementById("popup-zoom-qr").hidden = true;
+}
+
+function abrirZoomQr(codigo) {
+
+    const endereco = gerarQrUrl(codigo, 10, 4);
+
+    if (!endereco) {
+        return;
+    }
+
+    const imagem = document.getElementById("zoom-qr-imagem");
+    imagem.src = endereco;
+    imagem.alt = "Código QR do bilhete " + codigo;
+
+    document.getElementById("zoom-qr-codigo").textContent = "Código: " + codigo;
+
+    document.getElementById("popup-zoom-qr").hidden = false;
+    document.getElementById("zoom-qr-fechar").focus();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const popup = document.getElementById("popup-zoom-qr");
+
+    document.getElementById("zoom-qr-fechar").addEventListener("click", fecharZoomQr);
+
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            fecharZoomQr();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !popup.hidden) {
+            fecharZoomQr();
+        }
+    });
+});
+
 function criarCartaoBilhete(bilhete, festival, numero) {
 
     const cartao = document.createElement("article");
@@ -86,7 +147,21 @@ function criarCartaoBilhete(bilhete, festival, numero) {
     const imagem = criarImagemQr(bilhete.codigo);
 
     if (imagem) {
-        cartao.appendChild(imagem);
+
+        const contentor = document.createElement("div");
+        contentor.classList.add("qr-contentor");
+        contentor.appendChild(imagem);
+
+        // Botão para ampliar o QR
+        const botaoZoom = document.createElement("button");
+        botaoZoom.type = "button";
+        botaoZoom.classList.add("botao-zoom-qr");
+        botaoZoom.setAttribute("aria-label", "Ampliar código QR");
+        botaoZoom.innerHTML = '<i class="fa-solid fa-magnifying-glass-plus"></i>';
+        botaoZoom.addEventListener("click", () => abrirZoomQr(bilhete.codigo));
+
+        contentor.appendChild(botaoZoom);
+        cartao.appendChild(contentor);
     }
 
     const texto = document.createElement("div");

@@ -79,18 +79,15 @@
                 <!-- Leitor de QR -->
                 <div id="painel-qr" hidden>
 
-                    <div class="leitor-qr">
-                        <video id="video-qr" playsinline muted hidden></video>
-                        <div class="leitor-qr-vazio" id="leitor-qr-vazio">
-                            <i class="fa-solid fa-camera"></i>
-                            <span>A câmara está desligada</span>
-                        </div>
-                        <span class="moldura-qr" id="moldura-qr" hidden></span>
+                    <!-- Zona simulada de leitura (não liga a câmara) -->
+                    <div class="leitor-qr" aria-label="Zona de leitura do código QR">
+                        <span class="moldura-qr" id="moldura-qr">
+                            <i class="fa-solid fa-qrcode"></i>
+                        </span>
+                        <span class="leitor-qr-vazio" id="leitor-qr-vazio">
+                            Aponta a câmara ao código QR
+                        </span>
                     </div>
-
-                    <button type="button" class="botao-secundario-bilhete" id="botao-camara">
-                        <i class="fa-solid fa-camera"></i> Ligar câmara
-                    </button>
 
                     <button type="button" class="botao-secundario-bilhete" id="botao-imagem">
                         <i class="fa-solid fa-image"></i> Carregar imagem do QR

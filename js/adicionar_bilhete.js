@@ -11,17 +11,11 @@ const mensagemBilhete = document.getElementById("mensagem-bilhete");
 const painelCodigo = document.getElementById("painel-codigo");
 const painelQr = document.getElementById("painel-qr");
 
-const videoQr = document.getElementById("video-qr");
-const leitorVazio = document.getElementById("leitor-qr-vazio");
-const molduraQr = document.getElementById("moldura-qr");
-const botaoCamara = document.getElementById("botao-camara");
 const botaoImagem = document.getElementById("botao-imagem");
 const ficheiroQr = document.getElementById("ficheiro-qr");
 
 const notificacaoBilhete = document.getElementById("notificacao-bilhete");
 
-let streamCamara = null;
-let leituraAtiva = false;
 let temporizadorBilhete = null;
 
 /* =================================
@@ -105,10 +99,6 @@ document.querySelectorAll("[data-separador]").forEach((botao) => {
         painelQr.hidden = !qr;
 
         mostrarMensagem("");
-
-        if (!qr) {
-            pararCamara();
-        }
     });
 });
 
@@ -125,7 +115,7 @@ function usarCodigoLido(texto) {
     mostrarMensagem("Código QR lido. Carrega em Confirmar para adicionar.", true);
 }
 
-// Procurar um QR numa imagem (frame de vídeo ou ficheiro)
+// Procurar um QR numa imagem (ficheiro de imagem)
 function lerQrDaImagem(imagemData) {
 
     if (typeof jsQR !== "function") {
@@ -142,90 +132,8 @@ function lerQrDaImagem(imagemData) {
     return resultado ? resultado.data : null;
 }
 
-async function ligarCamara() {
-
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        mostrarMensagem("Este navegador não permite usar a câmara. Escreve o código ou carrega uma imagem.");
-        return;
-    }
-
-    try {
-        streamCamara = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: "environment" }
-        });
-    } catch (erro) {
-        mostrarMensagem("Não foi possível aceder à câmara. Verifica as permissões.");
-        return;
-    }
-
-    videoQr.srcObject = streamCamara;
-    await videoQr.play();
-
-    videoQr.hidden = false;
-    molduraQr.hidden = false;
-    leitorVazio.hidden = true;
-
-    botaoCamara.innerHTML = '<i class="fa-solid fa-stop"></i> Desligar câmara';
-
-    mostrarMensagem("");
-
-    leituraAtiva = true;
-    requestAnimationFrame(analisarFrame);
-}
-
-function pararCamara() {
-
-    leituraAtiva = false;
-
-    if (streamCamara) {
-        streamCamara.getTracks().forEach((faixa) => faixa.stop());
-        streamCamara = null;
-    }
-
-    videoQr.srcObject = null;
-    videoQr.hidden = true;
-    molduraQr.hidden = true;
-    leitorVazio.hidden = false;
-
-    botaoCamara.innerHTML = '<i class="fa-solid fa-camera"></i> Ligar câmara';
-}
-
 const canvasQr = document.createElement("canvas");
 const contextoQr = canvasQr.getContext("2d", { willReadFrequently: true });
-
-function analisarFrame() {
-
-    if (!leituraAtiva) {
-        return;
-    }
-
-    if (videoQr.readyState === videoQr.HAVE_ENOUGH_DATA) {
-
-        canvasQr.width = videoQr.videoWidth;
-        canvasQr.height = videoQr.videoHeight;
-        contextoQr.drawImage(videoQr, 0, 0);
-
-        const texto = lerQrDaImagem(
-            contextoQr.getImageData(0, 0, canvasQr.width, canvasQr.height)
-        );
-
-        if (texto) {
-            usarCodigoLido(texto);
-            pararCamara();
-            return;
-        }
-    }
-
-    requestAnimationFrame(analisarFrame);
-}
-
-botaoCamara.addEventListener("click", () => {
-    if (streamCamara) {
-        pararCamara();
-    } else {
-        ligarCamara();
-    }
-});
 
 // Ler QR a partir de uma imagem
 botaoImagem.addEventListener("click", () => ficheiroQr.click());
@@ -269,9 +177,6 @@ ficheiroQr.addEventListener("change", () => {
     ficheiroQr.value = "";
 });
 
-// Desligar a câmara ao sair da página
-window.addEventListener("pagehide", pararCamara);
-
 /* =================================
    CONFIRMAR
 ================================= */
@@ -299,7 +204,6 @@ formularioBilhete.addEventListener("submit", (e) => {
 
     guardarBilhete(codigo);
 
-    pararCamara();
     formularioBilhete.reset();
     botaoConfirmarBilhete.disabled = true;
     mostrarMensagem("");

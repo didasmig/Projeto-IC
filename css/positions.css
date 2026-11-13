@@ -15,7 +15,7 @@
     height: 100dvh;
     margin: 0 auto;
     overflow-y: auto;
-    background-color: #f4f4f4;
+    background-color: var(--fundo-secundario);
 }
 
 /* Cabeçalho */
@@ -141,7 +141,7 @@
     height: 100dvh;
     margin: 0 auto;
     overflow-y: auto;
-    background-color: #f4f4f4;
+    background-color: var(--fundo-secundario);
 }
 
 /* Cabeçalho */
@@ -391,7 +391,7 @@
 .formulario-transferencia input {
     padding: 14px;
     font-size: 100%;
-    border: 1.5px solid #ddd;
+    border: 1.5px solid var(--borda);
     border-radius: 12px;
     outline: none;
 }
@@ -402,7 +402,7 @@
     font-size: 150%;
     font-weight: 600;
     color: #fff;
-    background: #5b3cc4;
+    background: var(--roxo);
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -621,13 +621,16 @@
 }
 
 .leitor-qr-vazio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
 }
 
 .moldura-qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -870,6 +873,52 @@
     flex-shrink: 0;
     width: 110px;
     height: 110px;
+}
+
+.qr-contentor {
+    position: relative;
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+}
+
+.qr-contentor .qr-bilhete {
+    display: block;
+}
+
+.botao-zoom-qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+}
+
+/* Fixo ao ecrã (e à largura da app) para ficar sempre centrado, mesmo com scroll */
+#popup-zoom-qr {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 100%;
+    max-width: 430px;
+    transform: translateX(-50%);
+}
+
+.zoom-qr-imagem {
+    display: block;
+    width: 100%;
+    margin: 12px auto 0;
+}
+
+.zoom-qr-codigo {
+    margin-top: 10px;
+    word-break: break-all;
 }
 
 .texto-bilhete {

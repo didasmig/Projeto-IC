@@ -104,7 +104,9 @@ function mostrarFestivaisComBilhete() {
 
     const festivais = temSessao() ? obterFestivaisComBilhete() : [];
 
+    // Sem festivais adicionados: esconder o cartão "Festival Futuro"
     if (festivais.length === 0) {
+        cartaoFuturo.hidden = true;
         return;
     }
 
