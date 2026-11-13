@@ -470,6 +470,7 @@
 }
 
 
+<<<<<<< HEAD
 
 /* =================================
    PÁGINA ADICIONAR FESTIVAL - POSITIONS
@@ -914,3 +915,25 @@
     margin-bottom: 22px;
     text-align: center;
 }
+=======
+/* =================================
+   TEMA PRETO E DOURADO - POSITIONS
+================================= */
+
+.app,
+.aplicacao {
+    background-color: #faf9f5;
+}
+
+/* Botão de transferência */
+
+.formulario-transferencia button {
+    background: #252525;
+    color: #fff;
+}
+
+.formulario-transferencia button:hover {
+    background: #404040;
+}
+
+>>>>>>> 5a94004abf22c2f88d94581e4384e4dc4c9acb96
