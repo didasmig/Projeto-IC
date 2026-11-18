@@ -322,6 +322,7 @@ function mostrarFormularioBanDy(separador = "login") {
                 <input name="email"
                        type="email"
                        autocomplete="email"
+                       placeholder="exemplo@gmail.com"
                        required>
             </label>
 
