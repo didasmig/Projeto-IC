@@ -19,6 +19,33 @@ const notificacao = document.getElementById("notificacao-transferencia");
 let transferenciaPendente = null;
 let temporizadorNotificacao = null;
 
+// Procurar a conta do destinatário (por email ou nome)
+function procurarDestinatario(texto) {
+
+    const procura = texto.trim().toLowerCase();
+    const contas = obterContasBanDy();
+
+    const porEmail = contas.find((conta) => conta.email === procura);
+
+    if (porEmail) {
+        return { conta: porEmail };
+    }
+
+    const porNome = contas.filter(
+        (conta) => conta.nome.trim().toLowerCase() === procura
+    );
+
+    if (porNome.length === 1) {
+        return { conta: porNome[0] };
+    }
+
+    if (porNome.length > 1) {
+        return { erro: "Há várias contas com esse nome. Usa o email do destinatário." };
+    }
+
+    return { erro: "Destinatário não encontrado. Usa o email ou o nome da conta." };
+}
+
 function formatarEuros(valor) {
     return valor.toLocaleString("pt-PT", {
         minimumFractionDigits: 2,
@@ -56,8 +83,24 @@ formularioTransferencia?.addEventListener("submit", (e) => {
         return;
     }
 
+    const procura = procurarDestinatario(destinatario);
+
+    if (procura.erro) {
+        erroTransferencia.textContent = procura.erro;
+        return;
+    }
+
+    if (procura.conta.id === obterUtilizador().id) {
+        erroTransferencia.textContent = "Não podes transferir para a tua própria conta.";
+        return;
+    }
+
     // Pedir confirmação antes de mexer no saldo
-    transferenciaPendente = { destinatario, quantia };
+    transferenciaPendente = {
+        destinatario: procura.conta.nome,
+        idDestinatario: procura.conta.id,
+        quantia
+    };
 
     confirmarValor.textContent = "- " + formatarEuros(quantia);
     confirmarDestinatario.textContent = "Para: " + destinatario;
@@ -83,7 +126,7 @@ function confirmarTransferencia() {
         return;
     }
 
-    const { destinatario, quantia } = transferenciaPendente;
+    const { destinatario, idDestinatario, quantia } = transferenciaPendente;
 
     // Ler o saldo outra vez, por segurança
     const saldo = obterSaldo();
@@ -99,6 +142,9 @@ function confirmarTransferencia() {
     const novoSaldo = Math.round((saldo - quantia) * 100) / 100;
 
     atualizarSaldo(novoSaldo);
+
+    // Adicionar o dinheiro à conta do destinatário
+    creditarTransferencia(idDestinatario, quantia, obterUtilizador().nome);
 
     // Guardar transferência no histórico da conta atual
     guardarMovimento({

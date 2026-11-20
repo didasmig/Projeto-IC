@@ -1,4 +1,3 @@
-
 // CARTÕES DOS FESTIVAIS
 
 function abrirFestival(nome, id) {
@@ -100,13 +99,14 @@ function mostrarFestivaisComBilhete() {
     cartaoAtual.textContent = "Festival Atual";
     cartaoAtual.dataset.festival = "Festival Atual";
     delete cartaoAtual.dataset.festivalId;
-    cartaoFuturo.hidden = false;
+
+    // O cartão de exemplo "Festival Futuro" fica sempre escondido
+    cartaoFuturo.hidden = true;
 
     const festivais = temSessao() ? obterFestivaisComBilhete() : [];
 
-    // Sem festivais adicionados: esconder o cartão "Festival Futuro"
+    // Sem festivais adicionados: nada a mostrar
     if (festivais.length === 0) {
-        cartaoFuturo.hidden = true;
         return;
     }
 
@@ -119,8 +119,6 @@ function mostrarFestivaisComBilhete() {
     if (restantes.length === 0) {
         return;
     }
-
-    cartaoFuturo.hidden = true;
 
     restantes.forEach((festival) => {
 
@@ -213,5 +211,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 });
-
-

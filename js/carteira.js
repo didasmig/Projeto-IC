@@ -128,6 +128,17 @@ function mostrarMovimentos() {
             valorMovimento.textContent =
                 "- " + valorFormatado + " €";
 
+        // Transferência recebida
+        } else if (movimento.tipo === "transferencia_recebida") {
+
+            nomeMovimento.textContent =
+                "Transferência recebida - " + movimento.remetente;
+
+            valorMovimento.classList.add("valor-positivo");
+
+            valorMovimento.textContent =
+                "+ " + valorFormatado + " €";
+
         // Depósito
         } else if (movimento.tipo === "deposito") {
 

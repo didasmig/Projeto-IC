@@ -132,3 +132,44 @@ function guardarMovimento(movimento) {
         JSON.stringify(movimentos.slice(0, 10))
     );
 }
+
+/* =================================
+   CREDITAR OUTRA CONTA
+   (usado nas transferências entre utilizadores)
+================================= */
+
+function creditarTransferencia(idDestino, valor, nomeRemetente) {
+
+    const chaveSaldo = `BanDy_${idDestino}_saldoBanDy`;
+    const chaveMovimentos = `BanDy_${idDestino}_movimentosBanDy`;
+
+    const atual = localStorage.getItem(chaveSaldo) === null
+        ? SALDO_INICIAL
+        : Number(localStorage.getItem(chaveSaldo));
+
+    localStorage.setItem(
+        chaveSaldo,
+        (Math.round((atual + valor) * 100) / 100).toFixed(2)
+    );
+
+    let movimentos = [];
+
+    try {
+        movimentos = JSON.parse(localStorage.getItem(chaveMovimentos) || "[]");
+    } catch (erro) {
+        movimentos = [];
+    }
+
+    if (!Array.isArray(movimentos)) {
+        movimentos = [];
+    }
+
+    movimentos.unshift({
+        tipo: "transferencia_recebida",
+        remetente: nomeRemetente,
+        valor: valor,
+        data: new Date().toISOString()
+    });
+
+    localStorage.setItem(chaveMovimentos, JSON.stringify(movimentos.slice(0, 10)));
+}
